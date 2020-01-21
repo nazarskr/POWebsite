@@ -1,0 +1,44 @@
+<header>
+    <h1 (click)="goHome()">PaRi&nbsp;Art&nbsp;Music&nbsp;Orchestra</h1>
+    <hr>
+    <nav id="navigation">
+        <input  [(ngModel)]="isChecked" id="menuToggle" type="checkbox" />
+        <label class="menuBtn" for="menuToggle">
+            <span></span>
+        </label>
+        <ul id="navUkr" (click)='closeMenu()'>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="about" class="navLink">про нас</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="events" class="navLink">події</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="gallery" class="navLink">галерея</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="video" class="navLink">відео</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="contact" class="navLink">контакт</a>
+            </li>
+        </ul>
+        <ul id="navEng" *ngIf="language === 'eng'">
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="about" class="navLink">about</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="events" class="navLink">events</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="gallery" class="navLink">gallery</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="video" class="navLink">video</a>
+            </li>
+            <li routerLinkActive="active" (click)="setActive($event)">
+                <a routerLink="contact" class="navLink">contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>

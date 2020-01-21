@@ -1,0 +1,22 @@
+@import '../../../variables.scss';
+#home {
+    display: grid;
+    grid-template-rows: 2fr 1fr 2fr;
+    height: 2000px;
+    #homeSlideshow {
+        background-color:white;
+    }
+    #homePhotoVideo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        #homePhoto {
+            background-color: black;
+        }
+        #homeVideo {
+            background-color: grey;
+        }
+    }
+    #homeLatestNews {
+        background-color: $my-mint;
+    }
+}

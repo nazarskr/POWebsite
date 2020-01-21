@@ -1,0 +1,48 @@
+@import '../../../variables.scss';
+footer {
+    font-family: $head-font;
+    background-color: $my-black;
+    color: grey;
+    height: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    h2 {
+        color: $my-mint;
+    }
+    #social {
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        a {
+            img {
+                width: 32px;
+                height: 32px;
+                filter: invert(40%);
+                transition: filter 1s;
+            } 
+        }
+        a:hover {
+            img {
+                filter: invert(100%);
+                transition: filter 1s;
+            }
+        }  
+    }
+    #copyright {
+        p {
+            padding: 7px 0;
+            a {
+                color: grey;
+                transition-duration: 1s;
+            }
+            a:hover {
+                color: white;
+                transition-duration: 1s;
+            }
+        }
+    }
+}

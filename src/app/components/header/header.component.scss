@@ -1,0 +1,162 @@
+@import '../../../variables.scss';
+header {
+    font-family: $head-font;
+    position: relative;
+    h1 {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        color: $my-mint;
+        padding: 20px;
+        text-align: center;
+        font-size: 50px;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+    hr {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 200px;
+        border-top: 2px solid black;
+    }
+    #navigation {
+        width: 32px;
+        #menuToggle {
+            display: block;
+            opacity: 0;
+        }
+        .menuBtn {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            z-index: 102;
+            background-color: white;
+            padding: 2px;
+            border: 1px solid black;
+            cursor: pointer;
+            span,
+            span::before,
+            span::after {
+                display: block;
+                position: absolute;
+                width: 25px;
+                height: 2px;
+                background-color: black;
+            }
+            span::before {
+                content: '';
+                top: -8px;
+                transition-duration: .3s;
+            }
+            span::after {
+                content: '';
+                top: 8px;
+                transition-duration: .3s;
+            }
+        }
+        #menuToggle:checked ~ .menuBtn {
+            span {
+                transform: rotate(45deg);
+                transition-duration: .3s;
+            }
+          }
+          #menuToggle:checked ~ .menuBtn {
+            span::before {
+                top: 0;
+                transform: rotate(0);
+                transition-duration: .1s;
+            }
+          }
+          #menuToggle:checked ~ .menuBtn {
+            span::after {
+                top: 0;
+                transform: rotate(90deg);
+                transition-duration: .3s;
+            }
+          }
+          #menuToggle:checked ~ ul {
+            visibility: visible;
+            left: 0;
+            transition: left 1s;
+          }
+        ul {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            visibility: hidden;
+            top: 0;
+            left: -100%;
+            width: 100vw;
+            height: 100vh;
+            transition: left 1s;
+            z-index: 101;
+            li {
+                padding: 10px 0;
+                text-align: center;
+                a {
+                    font-size: 30px;
+                    text-transform: uppercase;
+                    color: black;
+                    transition: color .5s;
+                }
+                a:hover, .navActive {
+                    color: $my-mint;
+                    transition: color .5s;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 750px) {
+    header {
+        h1 {
+            font-size: 30px;
+        }
+        hr {
+            top: 70px;
+        }
+        #navigation {
+            .menuBtn {
+                width: 25px;
+                height: 25px;
+                span,
+                span::before,
+                span::after {
+                    width: 18px;
+                }
+                span::before {
+                    top: -7px;
+                }
+                span::after {
+                    top: 7px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 600px) {
+    header {
+        h1 {
+            font-size: 25px;
+        }
+        hr {
+            top: 60px;
+        }
+    }
+}
+@media (max-width: 450px) {
+    header {
+        h1 {
+            font-size: 20px;
+        }
+    }
+}
