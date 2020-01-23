@@ -5,18 +5,30 @@
     height: 2000px;
     #homeSlideshow {
         background-color:white;
+        border-bottom: 1px solid grey;
     }
     #homePhotoVideo {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        #homePhoto {
-            background-color: black;
+        .homePhotoVideo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            h2 {
+                color: $my-mint;
+            }
         }
-        #homeVideo {
-            background-color: grey;
+        #homePhoto {
+            border-right: 1px solid grey;
         }
     }
     #homeLatestNews {
-        background-color: $my-mint;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border-top: 1px solid grey;
+        // background-color: $my-mint;
     }
 }

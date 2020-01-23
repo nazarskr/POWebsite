@@ -1,0 +1,29 @@
+@import '../../../variables.scss';
+#contact {
+    #contactInner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        .contactItem {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            .contactItemLeft, .contactItemRight {
+                padding: 5%;
+            }
+            .contactItemLeft {
+                h3 {
+                    color: $my-mint;
+                    text-align: right;
+                }
+            }
+            .contactItemRight {
+                .contactName {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

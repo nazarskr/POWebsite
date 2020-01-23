@@ -1,0 +1,41 @@
+#gallery {
+    .galleryContainer {
+        display: grid;
+        grid-template-areas: "a a a a b b"
+                             "a a a a c c"
+                             "d d d e e e"
+                             "g g f f h h";
+        .galleryImage {
+            border: 1px solid white;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .img0 {
+            grid-area: a;
+        }
+        .img1 {
+            grid-area: b;
+        }
+        .img2 {
+            grid-area: c;
+        }
+        .img3 {
+            grid-area: d;
+        }
+        .img4 {
+            grid-area: e;
+        }
+        .img5 {
+            grid-area: f;
+        }
+        .img6 {
+            grid-area: g;
+        }
+        .img7 {
+            grid-area: h;
+        }
+    }
+}

@@ -8,6 +8,38 @@ import { LanguageService } from '../../shared/services/language.service';
 })
 export class VideoComponent implements OnInit {
   language = 'ukr';
+  videos = [
+    {
+      title: 'Концерт в Оргзалі',
+      date: new Date(),
+      imageUrl: '../../../assets/test/img6.JPG',
+      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
+    },
+    {
+      title: 'Концерт в Філармонії',
+      date: new Date(),
+      imageUrl: '../../../assets/test/img6.JPG',
+      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
+    },
+    {
+      title: 'Концерт в Опері',
+      date: new Date(),
+      imageUrl: '../../../assets/test/img6.JPG',
+      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
+    },
+    {
+      title: 'Концерт на Вокзалі',
+      date: new Date(),
+      imageUrl: '../../../assets/test/img6.JPG',
+      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
+    },
+    {
+      title: 'Концерт в Дрогобичі',
+      date: new Date(),
+      imageUrl: '../../../assets/test/img6.JPG',
+      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
+    },
+  ];
   constructor(private languageService: LanguageService) { }
 
   ngOnInit() {

@@ -1,1 +1,20 @@
-<p>gallery works!</p>
+<div id="gallery" class="page" (click)='setImagesClass()'>
+    <h2 class="pageTitle">Галерея</h2>
+    <div class="galleryContainer" *ngFor="let delta of imagesDelta; let j = index">
+        <div *ngFor="let image of images  | slice: j*8:(j+1)*8; let i = index" class="galleryImage">
+            <img src="{{image.url}}" 
+                 alt="{{image.title}}" 
+                 srcset="" 
+                 (click)="openGallery(i + (j*8))">
+        </div>
+    </div>
+    <ngx-image-gallery 
+        [images]="images" 
+        [conf]="conf"
+        (onOpen)="galleryOpened($event)"
+        (onClose)="galleryClosed()"
+        (onImageClicked)="galleryImageClicked($event)"
+        (onImageChange)="galleryImageChanged($event)"
+        (onDelete)="deleteImage($event)">
+    </ngx-image-gallery>
+</div>

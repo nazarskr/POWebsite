@@ -103,6 +103,7 @@ header {
                 padding: 10px 0;
                 text-align: center;
                 a {
+                    font-family: $head-font;
                     font-size: 30px;
                     text-transform: uppercase;
                     color: black;
@@ -157,6 +158,30 @@ header {
     header {
         h1 {
             font-size: 20px;
+        }
+        #navigation {
+            .menuBtn {
+                width: 20px;
+                height: 20px;
+                span,
+                span::before,
+                span::after {
+                    width: 14px;
+                }
+                span::before {
+                    top: -6px;
+                }
+                span::after {
+                    top: 6px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 350px) {
+    header {
+        h1 {
+            font-size: 18px;
         }
     }
 }

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule} from 'ngx-ui-loader';
 import { ngxUiLoaderConfig } from './loader-config';
+import { NgxImageGalleryModule } from 'ngx-image-gallery';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { VideoComponent } from './pages/video/video.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 import { AdminEventsComponent } from './admin/admin-events/admin-events.component';
+import { SayHelloComponent } from './components/say-hello/say-hello.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AdminEventsComponent } from './admin/admin-events/admin-events.componen
     VideoComponent,
     AdminComponent,
     AdminAboutComponent,
-    AdminEventsComponent
+    AdminEventsComponent,
+    SayHelloComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { AdminEventsComponent } from './admin/admin-events/admin-events.componen
     FormsModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgxUiLoaderRouterModule,
+    NgxImageGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

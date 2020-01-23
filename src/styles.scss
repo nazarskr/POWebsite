@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: $main-font;
 }
 li {
     list-style-type: none;
@@ -20,4 +21,34 @@ a:visited {
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: $head-font;
+}
+
+.page {
+    margin-top: 115px;
+}
+.pageTitle {
+    text-align: center;
+    padding: 5px 0 25px 0;
+    font-size: 40px;
+}
+@media(max-width: 750px) {
+    .page {
+        margin-top:85px;
+    }
+    .pageTitle {
+        font-size: 25px;
+    }
+}
+@media(max-width: 600px) {
+    .page {
+        margin-top: 75px;
+    }
+    .pageTitle {
+        font-size: 20px;
+    }
+}
+@media(max-width: 450px) {
+    .pageTitle {
+        font-size: 18px;
+    }
 }

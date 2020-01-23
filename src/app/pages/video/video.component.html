@@ -1,1 +1,10 @@
-<p>video works!</p>
+<div id="video" class="page">
+    <h2 class="pageTitle">Відео</h2>
+    <div id="videoInner">
+        <div class="videoOne" *ngFor="let video of videos">
+            <img src="{{video.imageUrl}}" alt="концерт" srcset="">
+            <h3>{{video.title}}</h3>
+            <p>{{video.date | date: 'dd/MM/yyyy'}}</p>
+        </div>
+    </div>
+</div>
