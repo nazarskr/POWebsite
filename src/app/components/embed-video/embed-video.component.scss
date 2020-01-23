@@ -1,0 +1,26 @@
+@import '../../../variables.scss';
+#embed-video {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 99998;
+    #closeVideo {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: white;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        filter: invert(100%);
+        z-index: 999999;
+        img {
+            width: 100%;
+        }
+    }
+}

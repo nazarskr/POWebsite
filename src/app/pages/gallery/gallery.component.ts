@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
 import { NgxImageGalleryComponent, GALLERY_CONF } from 'ngx-image-gallery';
 import { Gallery } from '../../shared/classes';
+import { ScrollDispatcher } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-gallery',
@@ -47,7 +48,8 @@ export class GalleryComponent implements OnInit {
   ];
   imagesDelta = [];
   galleryImages: HTMLCollection;
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService,
+              private scrollDispatcher: ScrollDispatcher) {}
 
   ngOnInit() {
     this.getLanguage();
@@ -64,6 +66,20 @@ export class GalleryComponent implements OnInit {
   initImages() {
     this.imagesDelta.length = Math.round(this.images.length / 8);
     this.galleryImages = document.getElementsByClassName('galleryImage');
+  }
+  scrollingEvents() {
+    this.scrollDispatcher.scrolled().subscribe(() => {
+      this.appearElement();
+    });
+  }
+  appearElement() {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.galleryImages.length; i++) {
+      const pos = this.galleryImages[i].getBoundingClientRect();
+      if (pos.top < window.innerHeight + 100 && pos.top > window.innerHeight / 1.2) {
+        this.galleryImages[i].classList.add('appear');
+      }
+    }
   }
   setImagesClass() {
     let j = 0;

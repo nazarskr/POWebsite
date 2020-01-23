@@ -3,10 +3,11 @@
     <div id="eventsInner">
         <div class="eventOne" *ngFor="let event of events">
             <div class="eventOneLeft">
-                <p>{{event.date | date: 'dd.MM.yyyy'}}</p>
+                <p class="eventOneDate">{{event.date | date: 'dd.MM.yyyy'}}</p>
                 <h3>{{event.title}}</h3>
                 <hr>
-                <p>{{event.description}}</p>
+                <p class="eventOneDescription">{{event.description}}</p>
+                <button class="myButton" (click)="viewDetails(event)"></button>
             </div>
             <div class="eventOneRight">
                 <img src="{{event.imageUrl}}" alt="" srcset="">

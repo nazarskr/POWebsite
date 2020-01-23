@@ -1,14 +1,37 @@
+@import '../../../variables.scss';
 #video {
     #videoInner {
         width: 100%;
-        padding: 0 7% 7% 7%;
+        padding: 0 3% 3% 3%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2%;
         .videoOne {
+            text-align: center;
+            padding: 20px;
             img {
                 width: 100%;
             }
+            h3 {
+                padding: 15px 0 5px 0;
+                color: $my-mint;
+            }
+            p {
+                font-weight: 200;
+            }
+        }
+    }
+}
+@media (max-width: 750px) {
+    #video {
+        #videoInner {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+@media (max-width: 550px) {
+    #video {
+        #videoInner {
+            grid-template-columns: 1fr;
         }
     }
 }

@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule} from 'ngx-ui-loader';
 import { ngxUiLoaderConfig } from './loader-config';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { HttpClientModule } from '@angular/common/http';
+import { EmbedVideo } from 'ngx-embed-video';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +23,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 import { AdminEventsComponent } from './admin/admin-events/admin-events.component';
 import { SayHelloComponent } from './components/say-hello/say-hello.component';
+import { EmbedVideoComponent } from './components/embed-video/embed-video.component';
 
 @NgModule({
   declarations: [
@@ -36,14 +40,18 @@ import { SayHelloComponent } from './components/say-hello/say-hello.component';
     AdminAboutComponent,
     AdminEventsComponent,
     SayHelloComponent,
+    EmbedVideoComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgxUiLoaderRouterModule,
-    NgxImageGalleryModule
+    NgxImageGalleryModule,
+    HttpClientModule,
+    EmbedVideo.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

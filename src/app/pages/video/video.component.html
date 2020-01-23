@@ -1,10 +1,11 @@
-<div id="video" class="page">
+<div id="video" class="page" (window:scroll)="scrollingEvents()">
     <h2 class="pageTitle">Відео</h2>
     <div id="videoInner">
-        <div class="videoOne" *ngFor="let video of videos">
+        <div class="videoOne" *ngFor="let video of videos; let i = index" (click)="showVideo(video)">
             <img src="{{video.imageUrl}}" alt="концерт" srcset="">
             <h3>{{video.title}}</h3>
             <p>{{video.date | date: 'dd/MM/yyyy'}}</p>
         </div>
     </div>
+    <app-embed-video [opened]="opened" [videoUrl]="videoUrl" (send)="hideVideo($event)"></app-embed-video>
 </div>

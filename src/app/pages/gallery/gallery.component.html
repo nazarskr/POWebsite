@@ -1,4 +1,4 @@
-<div id="gallery" class="page" (click)='setImagesClass()'>
+<div id="gallery" class="page" (click)='setImagesClass()' (window:scroll)="scrollingEvents()">
     <h2 class="pageTitle">Галерея</h2>
     <div class="galleryContainer" *ngFor="let delta of imagesDelta; let j = index">
         <div *ngFor="let image of images  | slice: j*8:(j+1)*8; let i = index" class="galleryImage">
