@@ -1,6 +1,84 @@
+@import '../variables.scss';
+.sayHello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/test/hello-image.JPG');
+    background-position: center;
+    background-size: cover;
+    z-index: 99999;
+    position: absolute;
+    top: 0;
+    h2 {
+        width: 50%;
+        color: white;
+        font-size: 70px;
+        animation: appearance 5s;
+        text-transform: uppercase;
+    }
+    div.myButton {
+        animation: appearance2 4s;
+        margin-top: 125px;
+    }
+}
 #app {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 0px 1fr 250px;
-    // grid-template-rows: 0px 1fr 320px;
+    // grid-template-rows: 0px 1fr 250px;
+    grid-template-rows: 0px 1fr 320px;
+}
+//animations
+.getOutHello {
+    animation: getOutHello 4s cubic-bezier(0.42,0,0.58,1);
+}
+.getOutHelloTitle {
+    animation: getOutHelloTitle 1s;
+}
+@keyframes getOutHello {
+    0% {
+        top: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        // transform: rotate(-15deg);
+        top: -100%;
+        opacity: 0;
+    }
+}
+@keyframes getOutHelloTitle {
+    0% {
+        color: white;
+    }
+    100% {
+        color: black;
+    }
+}
+@keyframes appearance {
+    from {
+        color: $my-grey;
+        transform: scale(.6);
+        opacity: 0;
+    }
+    to {
+        color: 'white';
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes appearance2 {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

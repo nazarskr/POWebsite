@@ -1,16 +1,43 @@
-<div id="home">
-    <!-- <app-say-hello></app-say-hello> -->
-    <div id="homeSlideshow">
+<div id="home" class="page">
+    <div id="homeSlideshow" class="homeBlock">
+        <img src="../../../assets/test/соцмережі_instagram.jpg" alt="" srcset="" id="centralLogo">
     </div>
-    <div id="homePhotoVideo">
+    <div id="homePhotoVideo" class="homeBlock">
         <div id="homePhoto" class="homePhotoVideo">
-            <h2>Photo</h2>
+            <h2>Фото</h2>
+            <div class="homePhotoVideoInner">
+                <img src="{{photos[0].url}}" alt="{{photos[0].title}}" srcset="">
+                <div>
+                    <h3>{{photos[0].title}}</h3>
+                </div>
+            </div>
         </div>
         <div id="homeVideo" class="homePhotoVideo">
-            <h2>Video</h2>
+            <h2>Відео</h2>
+            <div class="homePhotoVideoInner">
+                <img src="{{videos[0].imageUrl}}" alt="{{videos[0].title}}" srcset="">
+                <div>
+                    <h3>{{videos[0].title}}</h3>
+                    <p>{{videos[0].date | date: 'dd/MM/yyyy'}}</p>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="homeLatestNews">
-        <h2>Latest news</h2>
+    <div id="homeLatestNews" class="homeBlock">
+        <h2>Останні події</h2>
+        <div id="homeLatestNewsInner">
+            <div class="latestNew" *ngFor="let event of events">
+                <div class="latestNewImg">
+                    <img src="{{event.imageUrl}}" alt="{{event.title}}" srcset="">
+                    <div class="latestNewDescription">
+                        <p>{{event.description}}</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>{{event.title}}</h3>
+                    <p>{{event.date | date: 'dd/MM/yyyy'}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

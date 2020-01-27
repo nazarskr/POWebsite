@@ -22,7 +22,6 @@ import { VideoComponent } from './pages/video/video.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 import { AdminEventsComponent } from './admin/admin-events/admin-events.component';
-import { SayHelloComponent } from './components/say-hello/say-hello.component';
 import { EmbedVideoComponent } from './components/embed-video/embed-video.component';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { EmbedVideoComponent } from './components/embed-video/embed-video.compon
     AdminComponent,
     AdminAboutComponent,
     AdminEventsComponent,
-    SayHelloComponent,
     EmbedVideoComponent,
   ],
   imports: [

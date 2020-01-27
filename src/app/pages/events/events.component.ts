@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
+import { ScrollDispatcher } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-events',
@@ -38,7 +39,9 @@ export class EventsComponent implements OnInit {
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore unde assumenda nam praesentium laborum cum, dolor nesciunt quas deserunt, aspernatur id? Quasi iure veniam soluta optio explicabo ea beatae error!'
     }
   ];
-  constructor(private languageService: LanguageService) { }
+  blocks: HTMLCollection | NodeList;
+  constructor(private languageService: LanguageService,
+              private scrollDispatcher: ScrollDispatcher) { }
 
   ngOnInit() {
     this.getLanguage();
@@ -47,6 +50,21 @@ export class EventsComponent implements OnInit {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
     });
+  }
+  scrollingEvents() {
+    this.scrollDispatcher.scrolled().subscribe(() => {
+      this.appearElement();
+    });
+  }
+  appearElement() {
+    this.blocks = document.getElementsByClassName('eventOne');
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.blocks.length; i++) {
+      const pos = this.blocks[i].getBoundingClientRect();
+      if (pos.top < window.innerHeight + 100 && pos.top > window.innerHeight) {
+        this.blocks[i].classList.add('appear');
+      }
+    }
   }
 
 }

@@ -19,4 +19,15 @@ export class AppComponent implements OnInit {
         window.scrollTo(0, 0);
     });
   }
+  getOutHello() {
+    const block = document.getElementById('sayHello');
+    const title = document.getElementById('sayHelloTitle');
+    const centralLogo = document.getElementById('centralLogo');
+    block.classList.add('getOutHello');
+    title.classList.add('getOutHelloTitle');
+    centralLogo.classList.add('centralLogo');
+    setTimeout(() => {
+      block.setAttribute('style', 'display: none');
+    }, 3900);
+  }
 }

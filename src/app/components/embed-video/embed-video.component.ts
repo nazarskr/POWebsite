@@ -3,9 +3,10 @@ import {
   trigger,
   state,
   style,
+  transition,
+  animate
 } from '@angular/animations';
 import { EmbedVideoService } from 'ngx-embed-video';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-embed-video',
@@ -15,9 +16,11 @@ import { Subject } from 'rxjs';
     trigger('showVideo', [
       state('open', style({
         display: 'flex',
+        opacity: 1
       })),
       state('close', style({
         display: 'none',
+        opacity: 0
       })),
     ]),
   ],

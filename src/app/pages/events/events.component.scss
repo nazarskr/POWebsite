@@ -11,7 +11,7 @@
             border-bottom: 1px solid grey;
             margin-top: 25px;
             .eventOneLeft {
-                padding: 10px 20px;
+                padding: 20px;
                 .eventOneDate {
                     font-weight: bold;
                 }
@@ -30,6 +30,24 @@
                 img {
                     width: 100%;
                 }
+            }
+        }
+    }
+}
+@media (max-width: 900px) {
+    #events {
+        font-family: $main-font;
+        #eventsInner {
+            .eventOne {
+                padding: 25px 10px;
+                border-bottom: none;
+                grid-template-columns: none;
+                grid-template-rows: auto 2fr;
+            }
+            .eventOne:last-of-type {
+                padding-bottom: 0;
+                border-bottom: 1px solid grey;
+                margin-bottom: 10px;
             }
         }
     }

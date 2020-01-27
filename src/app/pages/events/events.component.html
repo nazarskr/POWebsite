@@ -1,4 +1,4 @@
-<div id="events" class="page">
+<div id="events" class="page" (window:scroll)="scrollingEvents()">
     <h2 class="pageTitle">Події</h2>
     <div id="eventsInner">
         <div class="eventOne" *ngFor="let event of events">
@@ -7,7 +7,7 @@
                 <h3>{{event.title}}</h3>
                 <hr>
                 <p class="eventOneDescription">{{event.description}}</p>
-                <button class="myButton" (click)="viewDetails(event)"></button>
+                <div class="myButton" (click)="viewDetails(event)">Детальніше</div>
             </div>
             <div class="eventOneRight">
                 <img src="{{event.imageUrl}}" alt="" srcset="">
