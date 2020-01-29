@@ -1,7 +1,9 @@
 <header>
+    <div class="changeLanguage" (click)="changeLanguage()" *ngIf="language === 'eng'">UA</div>
+    <div class="changeLanguage" (click)="changeLanguage()" *ngIf="language === 'ukr'">EN</div>
     <h1 (click)="goHome()">PaRi&nbsp;Art&nbsp;Music&nbsp;Orchestra</h1>
     <hr>
-    <nav id="navigation">
+    <div id="navigation">
         <input  [(ngModel)]="isChecked" id="menuToggle" type="checkbox" />
         <label class="menuBtn" for="menuToggle">
             <span></span>
@@ -40,5 +42,5 @@
                 <a routerLink="contact" class="navLink">contact</a>
             </li>
         </ul>
-    </nav>
+    </div>
 </header>

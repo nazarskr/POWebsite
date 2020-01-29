@@ -7,7 +7,9 @@
                 <h3>{{event.title}}</h3>
                 <hr>
                 <p class="eventOneDescription">{{event.description}}</p>
-                <div class="myButton" (click)="viewDetails(event)">Детальніше</div>
+                <div class="myButton" (click)="viewDetails(event)" *ngIf="event.facebookUrl">
+                    <a href="{{event.facebookUrl}}">Подія в Fb</a>
+                </div>
             </div>
             <div class="eventOneRight">
                 <img src="{{event.imageUrl}}" alt="" srcset="">

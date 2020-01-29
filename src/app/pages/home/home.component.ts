@@ -42,20 +42,16 @@ export class HomeComponent implements OnInit {
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore unde assumenda nam praesentium laborum cum, dolor nesciunt quas deserunt, aspernatur id? Quasi iure veniam soluta optio explicabo ea beatae error!'
     }
   ];
-  constructor(private languageService: LanguageService) { }
+  constructor(private languageService: LanguageService) {
+    this.getLanguage();
+  }
 
   ngOnInit() {
-    this.getLanguage();
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
     });
-    console.log(this.language);
-  }
-  changeLanguage() {
-    this.languageService.changeLanguage();
-    console.log(this.language);
   }
 
 }

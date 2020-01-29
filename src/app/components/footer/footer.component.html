@@ -14,9 +14,14 @@
             <img src="../../../assets/images/youtube.png" alt="youtube" srcset="">
         </a>
     </div>
-    <div id="copyright">
+    <div class="copyright" *ngIf="language === 'ukr'">
         <p>@<span>{{date | date: 'y'}}</span> Всі права збережені</p>
-        <p id="developerInfo">Розробник: <a href="https://nskrprogrammer.firebaseapp.com" target="_blank">Назар Скрипник</a>
+        <p class="developerInfo">Розробник: <a href="https://nskrprogrammer.firebaseapp.com" target="_blank">Назар Скрипник</a>
+        </p>
+    </div>
+    <div class="copyright" *ngIf="language === 'eng'">
+        <p>@<span>{{date | date: 'y'}}</span>All rights reserved</p>
+        <p class="developerInfo">Developer: <a href="https://nskrprogrammer.firebaseapp.com" target="_blank">Nazar Skrypnyk</a>
         </p>
     </div>
 </footer>

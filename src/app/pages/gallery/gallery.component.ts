@@ -11,7 +11,7 @@ import { ScrollDispatcher } from '@angular/cdk/scrolling';
 })
 export class GalleryComponent implements OnInit {
   @ViewChild (NgxImageGalleryComponent, {static: false}) ngxImageGallery: NgxImageGalleryComponent;
-  language = 'ukr';
+  language: string;
   conf: GALLERY_CONF = {
     imageOffset: '10px',
     imageBorderRadius: '0',
@@ -49,10 +49,11 @@ export class GalleryComponent implements OnInit {
   imagesDelta = [];
   galleryImages: HTMLCollection;
   constructor(private languageService: LanguageService,
-              private scrollDispatcher: ScrollDispatcher) {}
+              private scrollDispatcher: ScrollDispatcher) {
+                this.getLanguage();
+              }
 
   ngOnInit() {
-    this.getLanguage();
     this.initImages();
     setTimeout(() => {
       this.setImagesClass();

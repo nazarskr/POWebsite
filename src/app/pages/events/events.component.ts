@@ -8,7 +8,7 @@ import { ScrollDispatcher } from '@angular/cdk/scrolling';
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
-  language = 'ukr';
+  language: string;
   events = [
     {
       title: 'Концерт в Оргзалі',
@@ -21,6 +21,7 @@ export class EventsComponent implements OnInit {
       title: 'Концерт в Філармонії',
       date: new Date(),
       imageUrl: '../../../assets/test/img9.JPG',
+      facebookUrl: 'https://www.facebook.com/',
       // tslint:disable-next-line:max-line-length
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore unde assumenda nam praesentium laborum cum, dolor nesciunt quas deserunt, aspernatur id? Quasi iure veniam soluta optio explicabo ea beatae error!'
     },
@@ -35,16 +36,18 @@ export class EventsComponent implements OnInit {
       title: 'Концерт в Дрогобичі',
       date: new Date(),
       imageUrl: '../../../assets/test/img1.JPG',
+      facebookUrl: 'https://www.facebook.com/',
       // tslint:disable-next-line:max-line-length
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore unde assumenda nam praesentium laborum cum, dolor nesciunt quas deserunt, aspernatur id? Quasi iure veniam soluta optio explicabo ea beatae error!'
     }
   ];
   blocks: HTMLCollection | NodeList;
   constructor(private languageService: LanguageService,
-              private scrollDispatcher: ScrollDispatcher) { }
+              private scrollDispatcher: ScrollDispatcher) { 
+                this.getLanguage();
+              }
 
   ngOnInit() {
-    this.getLanguage();
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {

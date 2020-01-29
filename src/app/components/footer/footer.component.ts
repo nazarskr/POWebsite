@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LanguageService } from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  language: string;
   date = new Date();
-  constructor() { }
+  constructor(private languageService: LanguageService) {
+    this.getLanguage();
+  }
 
   ngOnInit() {
   }
-
+  getLanguage() {
+    this.languageService.getLanguage().subscribe(data => {
+      this.language = data;
+    });
+  }
 }

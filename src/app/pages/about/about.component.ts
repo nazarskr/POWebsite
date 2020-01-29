@@ -7,16 +7,16 @@ import { LanguageService } from '../../shared/services/language.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  private language: string;
-  constructor(private languageService: LanguageService) { }
+  language: string;
+  constructor(private languageService: LanguageService) {
+    this.getLanguage();
+  }
 
   ngOnInit() {
-    this.getLanguage();
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
-      console.log(this.language);
     });
   }
 

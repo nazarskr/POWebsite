@@ -11,7 +11,9 @@ export class HeaderComponent implements OnInit {
   language: string;
   isChecked = false;
   constructor(private languageService: LanguageService,
-              private router: Router) { }
+              private router: Router) {
+                this.getLanguage();
+              }
 
   ngOnInit() {
   }
@@ -22,6 +24,9 @@ export class HeaderComponent implements OnInit {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
     });
+  }
+  changeLanguage() {
+    this.languageService.changeLanguage();
     console.log(this.language);
   }
   removeActive(): void {

@@ -42,7 +42,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 35px;
     border: 2px solid $my-grey;
     background-color: white;
-    color: $my-mint;
     line-height: 31px;
     text-align: center;
     text-transform: uppercase;
@@ -50,12 +49,18 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 15px;
     cursor: pointer;
     transition-duration: .5s;
+    a {
+        color: $my-mint;
+    }
 }
 .myButton:hover {
     border-color: transparent;
     background-color: $my-mint;
-    color: white;
     transition-duration: .5s;
+    color: white;
+    a {
+        color: white;
+    }
 }
 @keyframes appear {
     from {

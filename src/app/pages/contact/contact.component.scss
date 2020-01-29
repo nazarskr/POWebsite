@@ -9,22 +9,50 @@
         min-height: 90vh;
         .contactItem {
             width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            .contactItemLeft, .contactItemRight {
-                padding: 5%;
+            text-align: center;
+            h3 {
+                color: $my-mint;
             }
-            .contactItemLeft {
-                h3 {
-                    color: $my-mint;
-                    text-align: right;
+            p {
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+                line-height: 23px;
+                img {
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 10px;
                 }
             }
-            .contactItemRight {
-                .contactName {
-                    font-weight: bold;
-                }
+            .contactName {
+                font-weight: bold;
             }
         }
+        .contactForm {
+            padding: 25px 0;
+            h3 {
+                color: $my-mint;
+                margin: 25px 0;
+                text-align: center;
+            }
+            .example-form {
+                width: 300px;
+            }
+            .example-full-width {
+                width: 100%;
+            }
+            ::ng-deep .mat-form-field-placeholder {
+                color: $my-mint !important;
+            }
+            ::ng-deep.mat-focused .mat-form-field-label {
+                color: $my-mint !important;
+            }
+            ::ng-deep.mat-form-field-underline {
+                background-color: $my-mint !important;
+            } 
+            ::ng-deep.mat-form-field-ripple {
+                background-color: $my-mint !important;
+            }
+        } 
     }
 }

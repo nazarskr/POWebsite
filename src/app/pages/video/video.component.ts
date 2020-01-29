@@ -9,7 +9,7 @@ import { ScrollDispatcher } from '@angular/cdk/scrolling';
 })
 export class VideoComponent implements OnInit {
   @Output() sendReq = new EventEmitter();
-  language = 'ukr';
+  language: string;
   videoUrl: string;
   opened = false;
   videos = [
@@ -76,10 +76,11 @@ export class VideoComponent implements OnInit {
   ];
   blocks: HTMLCollection | NodeList;
   constructor(private languageService: LanguageService,
-              private scrollDispatcher: ScrollDispatcher) { }
+              private scrollDispatcher: ScrollDispatcher) { 
+                this.getLanguage();
+              }
 
   ngOnInit() {
-    this.getLanguage();
     this.appearElement();
   }
   getLanguage() {
