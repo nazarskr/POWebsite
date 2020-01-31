@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
+import { EventsService } from '../../shared/services/events.service';
+import {Events} from '../../shared/classes';
+import {map} from 'rxjs/operators';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 
 @Component({
@@ -9,6 +12,7 @@ import { ScrollDispatcher } from '@angular/cdk/scrolling';
 })
 export class EventsComponent implements OnInit {
   language: string;
+  testEvents: Events[];
   events = [
     {
       title: 'Концерт в Оргзалі',
@@ -43,7 +47,8 @@ export class EventsComponent implements OnInit {
   ];
   blocks: HTMLCollection | NodeList;
   constructor(private languageService: LanguageService,
-              private scrollDispatcher: ScrollDispatcher) { 
+              private eventsService: EventsService,
+              private scrollDispatcher: ScrollDispatcher) {
                 this.getLanguage();
               }
 
@@ -52,7 +57,22 @@ export class EventsComponent implements OnInit {
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
+      this.getEvents();
     });
+  }
+  getEvents() {
+    this.eventsService.getEvents(this.language)
+      .snapshotChanges()
+      .pipe(
+        map(changes =>
+          changes.map(c =>
+            ({ key: c.payload.doc.id, ...c.payload.doc.data()})
+          )
+        )
+      )
+      .subscribe(data => {
+        this.testEvents = data;
+      });
   }
   scrollingEvents() {
     this.scrollDispatcher.scrolled().subscribe(() => {

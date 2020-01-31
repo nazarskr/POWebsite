@@ -1,0 +1,14 @@
+<ngx-dropzone
+    id="{{filePath}}"
+    accept="{{fileAccept}}"
+    multiple="false"
+    (change)="onSelect($event)">
+    <ngx-dropzone-label>Кидай сюди або клікай і вибирай!</ngx-dropzone-label>
+    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+    </ngx-dropzone-preview>
+</ngx-dropzone>
+<div class="progress" *ngIf="uploadProgress$ | async as progress">
+    <div class="progress-bar progress-bar-animated" id="progress" [ngStyle]="{ 'width': progress + '%' }"></div>
+</div>
+<button mat-stroked-button (click)="upload()">Завантажити</button>

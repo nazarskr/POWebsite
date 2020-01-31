@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .pageTitle {
     text-align: center;
-    padding: 5px 0 25px 0;
+    padding: 5px 0 50px 0;
     font-size: 40px;
 }
 .appear {
@@ -40,8 +40,10 @@ h1, h2, h3, h4, h5, h6 {
 .myButton {
     width: 100px;
     height: 35px;
-    border: 2px solid $my-grey;
+    font-family: $head-font;
+    border: 2px solid $my-mint;
     background-color: white;
+    color: $my-mint;
     line-height: 31px;
     text-align: center;
     text-transform: uppercase;
@@ -50,6 +52,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     transition-duration: .5s;
     a {
+        font-family: $head-font;
         color: $my-mint;
     }
 }
@@ -60,6 +63,20 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     a {
         color: white;
+    }
+}
+.myTable {
+    width: 90%;
+    margin: 20px auto;
+    border: 1px solid $my-mint;
+    border-collapse: collapse;
+    tbody {
+        tr {
+            td {
+                padding: 5px;
+                border: 1px solid $my-grey;
+            }
+        }
     }
 }
 @keyframes appear {

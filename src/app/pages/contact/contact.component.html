@@ -1,81 +1,88 @@
 <div id="contact" class="page">
-    <h2 class="pageTitle">Контакти</h2>
+    <h2 class="pageTitle" *ngIf="language === 'ukr'">Контакт</h2>
+    <h2 class="pageTitle" *ngIf="language === 'eng'">Contact</h2>
     <div id="contactInner">
         <div class="contactItem">
-            <h3>Оркестр</h3>
-            <p class="contactName">PaRi Art Music Orchestra</p>
-            <p>
-              <img src="../../../assets/images/mail.png" alt="" srcset="">
-                <a href="mailto:pariorchestra@gmail.com" target="_blank">pariorchestra@gmail.com</a>
-            </p>
-            <p>
-              <img src="../../../assets/images/facebook.png" alt="" srcset="">
-                <a href="https://www.facebook.com/PaRiArtMusic/" target="_blank">PaRi Art Music Orchestra</a>
-            </p>
-            <p>
-              <img src="../../../assets/images/instagram.png" alt="" srcset="">
-                <a href="https://www.instagram.com/pariartmusic/" target="_blank">pariartmusic</a>
-            </p>
+            <h3 *ngIf="language ==='ukr'">Оркестр</h3>
+            <h3 *ngIf="language ==='eng'">Orchestra</h3>
+            <div class="contactCard">
+              <p>
+                <img src="../../../assets/images/email-round.png" alt="" srcset="">
+                  <a href="mailto:pariorchestra@gmail.com" target="_blank">pariorchestra@gmail.com</a>
+              </p>
+              <p>
+                <img src="../../../assets/images/telephone-round.png" alt="" srcset="">
+                  <a href="tel:+380936993947" target="_blank">+380936993947</a>
+              </p>
+              <p>
+                <img src="../../../assets/images/facebook-round.png" alt="" srcset="">
+                  <a href="https://www.facebook.com/PaRiArtMusic/" target="_blank">PaRi Art Music Orchestra</a>
+              </p>
+              <p>
+                <img src="../../../assets/images/instagram-round.png" alt="" srcset="">
+                  <a href="https://www.instagram.com/pariartmusic/" target="_blank">pariartmusic</a>
+              </p>
+            </div>
         </div>
         <div class="contactItem">
-            <h3>Дириґент</h3>
-            <p class="contactName">Роман Багрій</p>
-            <p>
-              <a href="mailto:tttt@gmail.com" target="_blank">tttt@gmail.com</a>
-            </p>
-            <p>
-                <a href="https://www.facebook.com/profile.php?id=100005096599341" target="_blank">Роман Багрій</a>
-            </p>
-            <p>
-                <a href="https://www.instagram.com/bagrii.roman/" target="_blank">bagrii.roman</a>
-            </p>
+            <h3 *ngIf="language === 'ukr'">Дириґент</h3>
+            <h3 *ngIf="language === 'eng'">Conductor</h3>
+            <div class="contactCard">
+              <p>
+                <img src="../../../assets/images/email-round.png" alt="" srcset="">
+                  <a href="mailto:bagrsj1994@gmail.com" target="_blank">bagrsj1994@gmail.com</a>
+              </p>
+              <p>
+                <img src="../../../assets/images/facebook-round.png" alt="" srcset="">
+                  <a href="https://www.facebook.com/profile.php?id=100005096599341" target="_blank">Роман Багрій</a>
+              </p>
+              <p>
+                <img src="../../../assets/images/instagram-round.png" alt="" srcset="">
+                  <a href="https://www.instagram.com/bagrii.roman/" target="_blank">bagrii.roman</a>
+              </p>
+            </div>
         </div>
-        <div class="contactForm" *ngIf="language === 'ukr'">
-            <h3>Залишити відгук</h3>
-            <form class="example-form">
+        <div class="contactForm">
+            <h3 *ngIf="language === 'ukr'">Залишити відгук</h3>
+            <h3 *ngIf="language === 'eng'">Leave a comment</h3>
+            <form class="example-form" (submit)="sendMessage(sendForm)" #sendForm="ngForm">
                 <mat-form-field class="example-full-width">
-                  <input matInput 
-                        placeholder="Ваше ім'я" 
-                        required 
-                        [formControl]="nameFormControl">
-                  <mat-error *ngIf="nameFormControl.hasError('required')">
-                    Введіть <strong>ім'я</strong>
-                  </mat-error>
+                  <mat-label *ngIf="language === 'ukr'">Ваше ім'я:</mat-label>
+                  <mat-label *ngIf="language === 'eng'">Your name:</mat-label>
+                  <input matInput
+                        type="text" 
+                        required
+                        minlength="1" 
+                        ngModel
+                        #contactName="ngModel"
+                        name="contactName">
+                  <mat-error *ngIf="contactName.invalid && language === 'ukr'">Введіть ім'я</mat-error>
+                  <mat-error *ngIf="contactName.invalid && language === 'eng'">Enter your name</mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <textarea matInput 
-                            placeholder="Ваш відгук" 
-                            reqiured 
-                            [formControl]="messageFormControl"></textarea>
-                  <mat-error *ngIf="messageFormControl.hasError('required')">
-                    Напишіть <strong>відгук</strong>
-                  </mat-error>
-                </mat-form-field>
-                <button class="myButton">Надіслати</button>
-            </form>
-        </div>
-        <div class="contactForm" *ngIf="language === 'eng'">
-            <h3>Leave a comment</h3>
-            <form class="example-form">
-                <mat-form-field class="example-full-width">
-                  <input matInput 
-                        placeholder="Your name" 
-                        required 
-                        [formControl]="nameFormControl">
-                  <mat-error *ngIf="nameFormControl.hasError('required')">
-                    Name is <strong>required</strong>
-                  </mat-error>
+                  <mat-label *ngIf="language === 'ukr'">Ваш e-mail (необов'язково):</mat-label>
+                  <mat-label *ngIf="language === 'eng'">Your e-mail (is not required):</mat-label>
+                  <input matInput
+                        type="email"
+                        ngModel
+                        #contactEmail="ngModel"
+                        name="contactEmail">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <textarea matInput 
-                            placeholder="Your comment" 
+                  <mat-label *ngIf="language === 'ukr'">Ваш відгук:</mat-label>
+                  <mat-label *ngIf="language === 'eng'">Your message:</mat-label>
+                  <textarea matInput
                             required 
-                            [formControl]="messageFormControl"></textarea>
-                  <mat-error *ngIf="messageFormControl.hasError('required')">
-                    Message is <strong>required</strong>
-                  </mat-error>
+                            rows="6" 
+                            ngModel
+                            #contactMessage="ngModel"
+                            name="contactMessage">
+                  </textarea>
+                  <mat-error *ngIf="contactMessage.invalid && language === 'ukr'">Напишіть відгук</mat-error>
+                  <mat-error *ngIf="contactMessage.invalid && language === 'eng'">Enter your message</mat-error>
                 </mat-form-field>
-                <button class="myButton">Send</button>
+                <button type="submit" class="myButton" *ngIf="language === 'ukr'">Надіслати</button>
+                <button type="submit" class="myButton" *ngIf="language === 'eng'">Send</button>
             </form>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,8 @@ import { LanguageService } from '../../shared/services/language.service';
 export class FooterComponent implements OnInit {
   language: string;
   date = new Date();
-  constructor(private languageService: LanguageService) {
+  constructor(private languageService: LanguageService,
+              private router: Router) {
     this.getLanguage();
   }
 
@@ -19,5 +21,8 @@ export class FooterComponent implements OnInit {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
     });
+  }
+  goHome() {
+    this.router.navigate(['home']);
   }
 }

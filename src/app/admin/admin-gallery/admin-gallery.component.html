@@ -1,0 +1,10 @@
+<div id="adminGallery">
+    <h2 class="pageTitle">Галерея</h2>
+    <form>
+        <app-upload-file 
+            [fileAccept]="fileAccept" 
+            [filePath]="filePath" 
+            (fileUrl)="getUrl($event)">
+        </app-upload-file>
+    </form>
+</div>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule} from 'ngx-ui-loader';
 import { ngxUiLoaderConfig } from './loader-config';
@@ -9,9 +9,16 @@ import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { HttpClientModule } from '@angular/common/http';
 import { EmbedVideo } from 'ngx-embed-video';
 
-//material
+// material
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+
+// firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +34,10 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 import { AdminEventsComponent } from './admin/admin-events/admin-events.component';
 import { EmbedVideoComponent } from './components/embed-video/embed-video.component';
+import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.component';
+import { AdminContactComponent } from './admin/admin-contact/admin-contact.component';
+import { AdminVideoComponent } from './admin/admin-video/admin-video.component';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -43,22 +54,29 @@ import { EmbedVideoComponent } from './components/embed-video/embed-video.compon
     AdminAboutComponent,
     AdminEventsComponent,
     EmbedVideoComponent,
+    AdminGalleryComponent,
+    AdminContactComponent,
+    AdminVideoComponent,
+    UploadImageComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgxUiLoaderRouterModule,
     NgxImageGalleryModule,
     HttpClientModule,
     EmbedVideo.forRoot(),
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    NgxDropzoneModule
   ],
-  providers: [],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
