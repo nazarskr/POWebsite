@@ -1,0 +1,10 @@
+@import '../../../variables.scss';
+#adminGallery {
+    p {
+        a {
+            color: white;
+            font-weight: bold;
+            background-color: $my-grey;
+        }
+    }
+}

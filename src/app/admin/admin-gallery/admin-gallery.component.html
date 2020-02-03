@@ -1,10 +1,34 @@
-<div id="adminGallery">
+<div id="adminGallery" class="adminSection">
     <h2 class="pageTitle">Галерея</h2>
-    <form>
-        <app-upload-file 
+    <table class="myTable">
+        <thead>
+            <th>#</th>
+            <th>filename</th>
+            <th>image</th>
+            <th>delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of gallery; let i = index">
+                <td>{{i}}</td>
+                <td>{{item.name}}</td>
+                <td>
+                    <img src="{{item.url}}" alt="">
+                </td>
+                <td>
+                    <div class="myButton" (click)="deleteImage(item)">delete</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Перш, ніж додавати зображення, оптимізуй їх 
+        <a href="https://imagecompressor.com/ru/" target="_blank">тут</a>
+    </p>
+    <br>
+    <div id="uploadGallery">
+        <app-upload-image 
             [fileAccept]="fileAccept" 
             [filePath]="filePath" 
             (fileUrl)="getUrl($event)">
-        </app-upload-file>
-    </form>
+        </app-upload-image>
+    </div>
 </div>

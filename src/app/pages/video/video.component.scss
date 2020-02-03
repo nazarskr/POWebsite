@@ -2,12 +2,12 @@
 #video {
     #videoInner {
         width: 100%;
-        padding: 0 3% 3% 3%;
+        padding: 0 3% 3%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         .videoOne {
             text-align: center;
-            padding: 20px;
+            padding: 0 20px 20px;
             img {
                 width: 100%;
             }

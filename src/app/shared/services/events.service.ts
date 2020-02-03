@@ -6,27 +6,24 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
   providedIn: 'root'
 })
 export class EventsService {
-  private dbPath: string;
+  private dbPath = '/events';
+  eventsRef: AngularFirestoreCollection<Events> = null;
 
   constructor(private firestore: AngularFirestore) {
-    this.dbPath = 'db/events';
+    this.eventsRef = firestore
+      .collection(this.dbPath, ref => ref.orderBy('date', 'desc'));
   }
 
-  getEvents(lang): AngularFirestoreCollection<Events> {
-    return this.firestore.collection(`/${lang}/${this.dbPath}`);
+  getEvents(): AngularFirestoreCollection<Events> {
+    return this.eventsRef;
   }
-  createEvent(lang: string, event: Events): void {
-    this.firestore.collection(`/${lang}/${this.dbPath}`)
-      .add({...event});
+  createEvent(event: Events): void {
+    this.eventsRef.add({...event});
   }
-  updateEvent(lang: string, key: string, val: any): Promise<void> {
-    return this.firestore.collection(`/${lang}/${this.dbPath}`)
-      .doc(key)
-      .update(val);
+  updateEvent(key: string, val: any): Promise<void> {
+    return this.eventsRef.doc(key).update(val);
   }
-  deleteEvent(lang: string, key: string): Promise<void> {
-    return this.firestore.collection(`/${lang}/${this.dbPath}`)
-      .doc(key)
-      .delete();
+  deleteEvent(key: string): Promise<void> {
+    return this.eventsRef.doc(key).delete();
   }
 }

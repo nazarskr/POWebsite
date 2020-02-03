@@ -1,16 +1,18 @@
 @import '../../../variables.scss';
 #contact {
-    // margin-top: 0;
-    // padding-top: 115px;
-    padding: 40px 0;
-    background-color: $my-grey;
+    padding: 20px 0 40px 0;
+    // background-color: $my-grey;
+    background-color: $my-mint;
+    // background: linear-gradient($my-mint, $my-grey);
+    // background: linear-gradient($my-grey, $my-mint);
+    // background: linear-gradient($my-mint, black);
+    // background: linear-gradient($my-grey, black);
     #contactInner {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        min-height: 90vh;
         .contactItem {
             width: 520px;
             border-radius: 10px;
@@ -58,12 +60,6 @@
                 font-size: 30px;
                 padding-bottom: 20px;
             }
-            .example-form {
-                width: 350px;
-            }
-            .example-full-width {
-                width: 100%;
-            }
             ::ng-deep.mat-focused .mat-form-field-label {
                 color: $my-mint !important;
             }
@@ -79,5 +75,30 @@
                 background-color: $my-mint !important;
             }
         } 
+    }
+}
+@media (max-width: 600px) {
+    #contact {
+        #contactInner {
+            .contactItem {
+                width: 400px;
+            }
+            .contactForm {
+                width: 400px;
+            }
+        }
+    }
+}
+@media (max-width: 450px) {
+    #contact {
+        #contactInner {
+            font-size: 16px;
+            .contactItem {
+                width: 300px;
+            }
+            .contactForm {
+                width: 300px;
+            }
+        }
     }
 }

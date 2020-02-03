@@ -1,19 +1,24 @@
 @import '../../../variables.scss';
 #events {
     font-family: $main-font;
+    .myHr {
+        display: none;
+    }
     #eventsInner {
         .eventOne {
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            // background-color: $my-mint;
-            border-top: 1px solid grey;
-            border-bottom: 1px solid grey;
-            margin-top: 25px;
+            border-top: 1px solid $my-grey;
+            border-bottom: 1px solid $my-grey;
+            margin-bottom: 25px;
             .eventOneLeft {
                 padding: 20px;
                 .eventOneDate {
+                    font-size: 20px;
                     font-weight: bold;
+                    color: $my-grey;
+                    margin-top: 10px;
                 }
                 h3 {
                     font-size: 30px;
@@ -36,18 +41,46 @@
 }
 @media (max-width: 900px) {
     #events {
-        font-family: $main-font;
+        .myHr {
+            display: block;
+            width: 85%;
+            border: 1px solid $my-mint;
+            margin: 0 auto;
+        }
         #eventsInner {
             .eventOne {
-                padding: 25px 10px;
+                padding: 0 10px;
                 border-bottom: none;
                 grid-template-columns: none;
                 grid-template-rows: auto 2fr;
+                .eventOneLeft {
+                    padding: 10px 20px;
+                    h3, .eventOneDate {
+                        text-align: center;
+                    }
+                    hr {
+                        margin: 15px auto;
+                    }
+                }
+                .eventOneRight {
+                    padding: 10px 20px;
+                }
             }
-            .eventOne:last-of-type {
-                padding-bottom: 0;
-                border-bottom: 1px solid grey;
-                margin-bottom: 10px;
+            .eventOne:first-of-type {
+                border-top: none;
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    #events {
+        #eventsInner {
+            .eventOne {
+                .eventOneLeft {
+                    h3 {
+                        font-size: 25px;
+                    }
+                }
             }
         }
     }

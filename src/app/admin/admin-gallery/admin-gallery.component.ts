@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Gallery } from '../../shared/classes';
 import { GalleryService } from '../../shared/services/gallery.service';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin-gallery',
@@ -10,28 +11,42 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class AdminGalleryComponent implements OnInit {
   fileAccept = '.jpg, .JPEG, .JPG, .png, .tiff, .svg';
-  filePath = 'newsImages/';
-  oldImageUrl: string;
+  filePath = 'galleryImages/';
+  fileUrls: string[] = [];
   submitted = true;
   update = false;
   gallery: Gallery[];
-  galleryImage: Gallery = new Gallery();
   constructor(private afStorage: AngularFireStorage,
               private galleryService: GalleryService) { }
 
   ngOnInit() {
+    this.getGallery();
   }
-
-  // getUrl(data) {
-  //   this.oldImageUrl = this.galleryImage.url;
-  //   this.galleryImage.url = data;
-  //   this.galleryService
-  //     .updateNews(this.galleryImage.key, {url: this.galleryImage.url})
-  //     .catch(err => console.log(err));
-  //   if (this.oldImageUrl) {
-  //     this.afStorage.storage.refFromURL(this.oldImageUrl).delete();
-  //   }
-  //   alert('Завантажено!');
-  // }
+  getGallery() {
+    this.galleryService.getGallery()
+      .snapshotChanges()
+      .pipe(
+        map(changes =>
+          changes.map(c =>
+            ({...c.payload.doc.data(), key: c.payload.doc.id})
+          )
+        )
+      )
+      .subscribe(data => {
+        this.gallery = data;
+      });
+  }
+  deleteImage(item) {
+    const sure = confirm('впевнений?');
+    if (sure) {
+      this.galleryService.deleteGallery(item.key);
+      this.afStorage.storage.refFromURL(item.url).delete();
+    }
+  }
+  getUrl(data) {
+    this.fileUrls.push(data);
+    this.galleryService.createGallery(data);
+    alert(`${data.name} завантажено!`);
+  }
 
 }

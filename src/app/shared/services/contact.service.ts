@@ -6,11 +6,11 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
   providedIn: 'root'
 })
 export class ContactService {
-  private dbPath = '/ukr/db/contact';
+  private dbPath = '/contact';
   contactRef: AngularFirestoreCollection<Contact> = null;
 
   constructor(private firestore: AngularFirestore) {
-    this.contactRef = firestore.collection(this.dbPath);
+    this.contactRef = firestore.collection(this.dbPath, ref => ref.orderBy('date', 'desc'));
   }
 
   getContacts(): AngularFirestoreCollection<Contact> {

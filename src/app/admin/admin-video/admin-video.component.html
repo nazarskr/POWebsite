@@ -1,3 +1,13 @@
 <div id="adminVideo">
     <h2 class="pageTitle">Відео</h2>
+    <table class="myTable">
+
+    </table>
+    <form>
+        <app-upload-image 
+            [fileAccept]="fileAccept" 
+            [filePath]="filePath" 
+            (fileUrl)="getUrl($event)">
+        </app-upload-image>
+    </form>
 </div>

@@ -140,22 +140,16 @@ header {
 }
 @media (max-width: 600px) {
     header {
+        .changeLanguage {
+            font-size: 12px;
+            padding: 2px;
+            top: 45px;
+        }
         h1 {
             font-size: 25px;
         }
         hr {
             top: 60px;
-        }
-    }
-}
-@media (max-width: 450px) {
-    header {
-        .changeLanguage {
-            font-size: 13px;
-            padding: 1px;
-        }
-        h1 {
-            font-size: 20px;
         }
         #navigation {
             .menuBtn {
@@ -167,19 +161,19 @@ header {
                     width: 14px;
                 }
                 span::before {
-                    top: -6px;
+                    top: -5px;
                 }
                 span::after {
-                    top: 6px;
+                    top: 5px;
                 }
             }
         }
     }
 }
-@media (max-width: 350px) {
+@media (max-width: 500px) {
     header {
         h1 {
-            font-size: 18px;
+            font-size: 20px;
         }
     }
 }

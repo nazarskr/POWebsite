@@ -1,6 +1,6 @@
 @import '../../../variables.scss';
 #about {
-    padding: 0 5%;
+    padding: 0 8%;
     .aboutSection {
         margin: 50px 0;
         .aboutSectionImg {
@@ -17,6 +17,6 @@
         }
     }
     hr {
-        border: 2px solid $my-mint;
+        border: 1px solid $my-mint;
     }
 }

@@ -75,9 +75,30 @@ h1, h2, h3, h4, h5, h6 {
             td {
                 padding: 5px;
                 border: 1px solid $my-grey;
+                img {
+                    width: 100px;
+                    margin: 5px;
+                }
+                .myButton {
+                    margin: 0 auto;
+                }
             }
         }
     }
+}
+.example-form {
+    width: 350px;
+}
+.example-full-width {
+    width: 100%;
+}
+.adminSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 25px;
 }
 @keyframes appear {
     from {
@@ -97,5 +118,17 @@ h1, h2, h3, h4, h5, h6 {
 @media(max-width: 600px) {
     .page {
         margin-top: 75px;
+    }
+    .pageTitle {
+        padding: 5px 0 30px 0;
+        font-size: 35px;
+    }
+    .example-form {
+        width: 350px;
+    }
+}
+@media (max-width: 450px) {
+    .example-form {
+        width: 200px;
     }
 }

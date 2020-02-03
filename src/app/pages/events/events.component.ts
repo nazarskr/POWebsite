@@ -53,15 +53,15 @@ export class EventsComponent implements OnInit {
               }
 
   ngOnInit() {
+    this.getEvents();
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
-      this.getEvents();
     });
   }
   getEvents() {
-    this.eventsService.getEvents(this.language)
+    this.eventsService.getEvents()
       .snapshotChanges()
       .pipe(
         map(changes =>

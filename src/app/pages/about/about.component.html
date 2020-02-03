@@ -1,6 +1,7 @@
-<div id="about" class="page">
+<div id="about" class="page" (window:scroll)="scrollingEvents()">
     <div id="aboutOrchestra" class="aboutSection">
-        <h2 class="pageTitle">Про оркестр</h2>
+        <h2 class="pageTitle" *ngIf="language === 'ukr'">Про оркестр</h2>
+        <h2 class="pageTitle" *ngIf="language === 'eng'">About us</h2>
         <div id="aboutOrchestraImg" class="aboutSectionImg">
             <img src="../../../assets/test/img5.jpg" alt="" srcset="">
         </div>
@@ -25,7 +26,8 @@
     </div>
     <hr>
     <div id="aboutConductor" class="aboutSection">
-        <h2 class="pageTitle">Роман Багрій</h2>
+        <h2 class="pageTitle" *ngIf="language === 'ukr'">Роман Багрій</h2>
+        <h2 class="pageTitle" *ngIf="language === 'eng'">Roman Bagrii</h2>
         <div id="aboutConductorImg" class="aboutSectionImg">
             <img src="../../../assets/test/img7.JPG" alt="" srcset="">
         </div>

@@ -1,5 +1,7 @@
 <div id="events" class="page" (window:scroll)="scrollingEvents()">
-    <h2 class="pageTitle">Події</h2>
+    <h2 class="pageTitle" *ngIf="language === 'ukr'">Події</h2>
+    <h2 class="pageTitle" *ngIf="language === 'eng'">Events</h2>
+    <hr class="myHr">
     <div id="eventsInner">
         <div class="eventOne" *ngFor="let event of events">
             <div class="eventOneLeft">
