@@ -48,8 +48,8 @@ export class HomeComponent implements OnInit {
   }
   scrollingEvents() {
     this.scrollDispatcher.scrolled().subscribe(() => {
-        this.backgroundTop = `${window.scrollY * 2}px`;
-        console.log(this.backgroundTop);
+      this.backgroundTop = `${(window.scrollY - 50) / 4}px`;
+      console.log(this.backgroundTop);
     });
   }
 

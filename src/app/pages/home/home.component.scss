@@ -7,10 +7,12 @@
         width: 100vw;
         height: 100vh;
         position: absolute;
+        top: 0;
         background-image: url('https://firebasestorage.googleapis.com/v0/b/pari-art-music-orchestra.appspot.com/o/galleryImages%2FIMG_5047-min.JPG?alt=media&token=9e787f44-bc48-4d5b-923c-16a55bee314e');
         background-size: cover;
         background-position: left;
         z-index: -1;
+        transition: top .1s;
     }
     #homeLogo {
         width: 100vw;
