@@ -9,13 +9,24 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   language: string;
+  showHeader = 'none';
   isChecked = false;
   constructor(private languageService: LanguageService,
               private router: Router) {
                 this.getLanguage();
+                this.dispatchRouter();
               }
 
   ngOnInit() {
+  }
+  dispatchRouter() {
+    this.router.events.subscribe(() => {
+    if (this.router.url === '/home' || this.router.url === '/') {
+      this.showHeader = 'none';
+    } else {
+      this.showHeader = 'block';
+    }
+    });
   }
   goHome() {
     this.router.navigate(['home']);

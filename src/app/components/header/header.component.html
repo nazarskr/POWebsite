@@ -1,8 +1,8 @@
 <header>
     <div class="changeLanguage" (click)="changeLanguage()" *ngIf="language === 'eng'">UA</div>
     <div class="changeLanguage" (click)="changeLanguage()" *ngIf="language === 'ukr'">EN</div>
-    <h1 (click)="goHome()">PaRi&nbsp;Art&nbsp;Music&nbsp;Orchestra</h1>
-    <hr>
+    <h1 (click)="goHome()" [ngStyle]="{'display': showHeader}">PaRi&nbsp;Art&nbsp;Music&nbsp;Orchestra</h1>
+    <hr [ngStyle]="{'display': showHeader}">
     <div id="navigation">
         <input  [(ngModel)]="isChecked" id="menuToggle" type="checkbox" />
         <label class="menuBtn" for="menuToggle">

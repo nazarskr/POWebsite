@@ -1,89 +1,112 @@
 @import '../../../variables.scss';
 #home {
     display: grid;
-    grid-template-rows: repeat(3, auto);
-    #homeSlideshow {
-        display: grid;
-        padding: 0 25%;
-        border-bottom: 1px solid grey;
-        background-color: $my-mint;
-        img {
-            width: 100%;
-            filter: invert(100%);
-        }
+    grid-template-rows: 100vh, 1fr;
+    position: relative;
+    #homeImage {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/pari-art-music-orchestra.appspot.com/o/galleryImages%2FIMG_5047-min.JPG?alt=media&token=9e787f44-bc48-4d5b-923c-16a55bee314e');
+        background-size: cover;
+        background-position: left;
+        z-index: -1;
     }
-    #homePhotoVideo {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        .homePhotoVideo {
+    #homeLogo {
+        width: 100vw;
+        height: 100vh;
+        background-color: $my-light-translucent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-bottom: 1px solid $my-grey;
+        #logoAnimation {
+            width: 30%;
             display: grid;
-            grid-template-rows: auto 1fr;
-            text-align: center;
-            padding: 0 5%;
-            h2 {
-                color: $my-mint;
-                padding: 25px 0;
-            }
-            .homePhotoVideoInner {
-                display: grid;
-                grid-template-rows: 1fr auto;
-                img {
-                    width: 100%;
-                }
-                div {
-                    padding-bottom: 20px;
-                    h3 {
-                        margin: 10px 0;
-                    }
-                }
+            object {
+                width: 100%;
+                filter: invert(100%);
+                animation: 3s appearance;
             }
         }
-        #homePhoto {
-            border-right: 1px solid grey;
+        h2 {
+            display: block;
+            margin-top: 4vw;
+            color: white;
+            font-size: 5.5vw;
+            animation: 6s appearance;
+        }
+        @keyframes appearance {
+            0% {
+                transform: scale(.5);
+                opacity: 0;
+            }
+            40% {
+                transform: scale(.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     }
     #homeLatestNews {
+        background-color: black;
         display: flex;
         flex-direction: column;
         text-align: center;
-        border-top: 1px solid grey;
-        padding: 25px 0;
+        padding: 50px 20px;
+        .pageTitle {
+            color: $my-mint;
+            // color: white;
+            // text-shadow: 1px 1px 2px $my-grey;
+        }
         #homeLatestNewsInner {
             padding: 20px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-column-gap: 20px;
+            border-bottom: 1px solid $my-grey;
             .latestNew {
                 display: grid;
-                grid-template-rows: 1fr auto;
+                grid-template-rows: 1fr none;
+                background-color: white;
+                border-radius: 10px;
+                padding: 10px;
+                position: relative;
+                .latestNewDescription {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 60%;
+                    opacity: 0;
+                    background-color: $my-translucent;
+                    color: grey;
+                    transition: all .5s;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5% 10%;
+                    border-radius: 10px;
+                    p {
+                        text-align: justify;
+                        cursor: pointer;
+                        font-size: 1.6vw;
+                    }
+                }
+                .latestNewDescription:hover {
+                    opacity: 1;
+                    height: 100%;
+                    color: white;
+                    transition: opacity 1s, height .5s, color 3s;
+                }
                 .latestNewImg {
-                    position: relative;
                     img {
                         width: 100%;
-                    }
-                    .latestNewDescription {
-                        position: absolute;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                        opacity: 0;
-                        background-color: $my-translucent;
-                        color: white;
-                        transition: opacity 1s;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 5% 10%;
-                        p {
-                            text-align: justify;
-                            cursor: pointer;
-                            font-size: 1.5vw;
-                        }
-                    }
-                    .latestNewDescription:hover {
-                        opacity: 1;
-                        transition: opacity 1s;
                     }
                 }
                 div {
@@ -91,41 +114,75 @@
                         padding: 10px 0;
                         color: $my-mint;
                     }
+                    .latestNewDate {
+                        color: $my-grey;
+                    }
+                    .myButton {
+                        margin: 15px auto 0;
+                    }
                 }
             }
         }
     }
 }
-@media(max-width: 750px) {
+@media(max-width: 900px) {
     #home {
-        #homeSlideshow {
-            border-bottom: none;
-        }
-        #homePhotoVideo {
-            grid-template-columns: none;
-            grid-template-rows: 1fr 1fr;
-            #homePhoto {
-                border-right: none;
-            }
-            .homePhotoVideo {
-                border-top: 1px solid grey;
+        #homeLatestNews {
+            #homeLatestNewsInner {
+                .latestNew {
+                    div {
+                        h3 {
+                            font-size: 16px
+                        }
+                    }
+                }
             }
         }
     }
 }
-.centralLogo {
-    animation: comeIn 2.5s;
+@media(max-width: 700px) {
+    #home {
+        #homeLatestNews {
+            #homeLatestNewsInner {
+                display: grid;
+                grid-template-columns: none;
+                grid-template-rows: repeat(3, 1fr);
+                grid-row-gap: 20px;
+                .latestNew {
+                    padding: 20px;
+                    .latestNewDescription {
+                        p {
+                            font-size: 4vw;
+                        }
+                    }
+                    div {
+                        h3 {
+                            font-size: 25px
+                        }
+                        .latestNewDate {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-@keyframes comeIn {
-    0% {
-        transform: translate(-1000px);
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        transform: translate(0);
-        opacity: 1;
+@media (max-width: 500px) {
+    #home {
+        #homeLatestNews {
+            #homeLatestNewsInner {
+                .latestNew {
+                    div {
+                        h3 {
+                            font-size: 20px
+                        }
+                        .latestNewDate {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,12 +1,20 @@
 @import '../../../variables.scss';
+#contactImage {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/pari-art-music-orchestra.appspot.com/o/galleryImages%2FIMG_9821-min.JPG?alt=media&token=09b16575-6cac-466f-915a-f794e6f9a034');
+    background-size: cover;
+    background-position: left;
+    z-index: -1;
+}
 #contact {
-    padding: 20px 0 40px 0;
-    // background-color: $my-grey;
-    background-color: $my-mint;
-    // background: linear-gradient($my-mint, $my-grey);
-    // background: linear-gradient($my-grey, $my-mint);
-    // background: linear-gradient($my-mint, black);
-    // background: linear-gradient($my-grey, black);
+    padding: 115px 0 40px;
+    background-color: $my-light-translucent;
+    .pageTitle {
+        color: white;
+    }
     #contactInner {
         display: flex;
         flex-direction: column;
@@ -77,8 +85,14 @@
         } 
     }
 }
+@media(max-width: 750px) {
+    #contact {
+        padding-top:85px;
+    }
+}
 @media (max-width: 600px) {
     #contact {
+        padding-top: 75px;
         #contactInner {
             .contactItem {
                 width: 400px;

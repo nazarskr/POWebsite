@@ -8,7 +8,6 @@ import {LanguageService} from './shared/services/language.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'POWebsite';
   language: string;
 
   constructor(private router: Router,
@@ -29,16 +28,4 @@ export class AppComponent implements OnInit {
       this.language = lang;
     });
   }
-
-  // getOutHello() {
-  //   const block = document.getElementById('sayHello');
-  //   const title = document.getElementById('sayHelloTitle');
-  //   const centralLogo = document.getElementById('centralLogo');
-  //   block.classList.add('getOutHello');
-  //   title.classList.add('getOutHelloTitle');
-  //   centralLogo.classList.add('centralLogo');
-  //   setTimeout(() => {
-  //     block.setAttribute('style', 'display: none');
-  //   }, 3900);
-  // }
 }
