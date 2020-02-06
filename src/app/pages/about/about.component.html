@@ -3,25 +3,11 @@
         <h2 class="pageTitle" *ngIf="language === 'ukr'">Про оркестр</h2>
         <h2 class="pageTitle" *ngIf="language === 'eng'">About us</h2>
         <div id="aboutOrchestraImg" class="aboutSectionImg">
-            <img src="../../../assets/test/img5.jpg" alt="" srcset="">
+            <img src="{{about.orchImageUrl}}" alt="PaRi Art Orchestra" srcset="">
         </div>
         <div id="aboutOrchestraText" class="aboutSectionText">
-            <p>Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio. 
-                Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio.
-                Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio.
-                Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio.</p>
+            <p *ngIf="language === 'ukr'">{{about.orchUkr}}</p>
+            <p *ngIf="language === 'eng'">{{about.orchEng}}</p>
         </div>
     </div>
     <hr>
@@ -29,25 +15,11 @@
         <h2 class="pageTitle" *ngIf="language === 'ukr'">Роман Багрій</h2>
         <h2 class="pageTitle" *ngIf="language === 'eng'">Roman Bagrii</h2>
         <div id="aboutConductorImg" class="aboutSectionImg">
-            <img src="../../../assets/test/img7.JPG" alt="" srcset="">
+            <img src="{{about.condImageUrl}}" alt="" srcset="">
         </div>
         <div id="aboutConductorText" class="aboutSectionText">
-            <p>Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio. 
-                Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio.
-                Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio.
-                Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Voluptatem officia voluptate velit sapiente. 
-                Rem non quod rerum fugiat pariatur sint recusandae. Repellat facilis 
-                aspernatur sint placeat quod natus aut distinctio.</p>
+            <p *ngIf="language === 'ukr'">{{about.condUkr}}</p>
+            <p *ngIf="language === 'eng'">{{about.condEng}}</p>
         </div>
     </div>
 </div>

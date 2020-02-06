@@ -1,0 +1,17 @@
+<div id="login" class="page">
+    <h3>Введи логін і пароль, щоб увійти</h3>
+    <form>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Логін" 
+                    [(ngModel)]="adL" 
+                    name="adL">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput 
+                    placeholder="Пароль" 
+                    [(ngModel)]="adP" 
+                    name="adP">
+        </mat-form-field>
+        <button class="myButton" (click)="login()">Увійти</button>
+    </form>
+</div>

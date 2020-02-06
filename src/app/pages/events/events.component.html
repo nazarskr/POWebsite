@@ -5,12 +5,19 @@
     <div id="eventsInner">
         <div class="eventOne" *ngFor="let event of events">
             <div class="eventOneLeft">
-                <p class="eventOneDate">{{event.date | date: 'dd.MM.yyyy'}}</p>
-                <h3>{{event.title}}</h3>
+                <p class="eventOneDate">{{event.date.toDate() | date: 'dd.MM.yyyy'}}, {{event.time}}</p>
+                <h3 *ngIf="language === 'ukr'">{{event.titleUkr}}</h3>
+                <h3 *ngIf="language === 'eng'">{{event.titleEng}}</h3>
                 <hr>
-                <p class="eventOneDescription">{{event.description}}</p>
-                <div class="myButton" (click)="viewDetails(event)" *ngIf="event.facebookUrl">
-                    <a href="{{event.facebookUrl}}">Подія в Fb</a>
+                <p class="eventOneDescription" 
+                    *ngIf="language === 'ukr'">{{event.descriptionUkr}}</p>
+                <p class="eventOneDescription" 
+                    *ngIf="language === 'eng'">{{event.descriptionEng}}</p>
+                <div class="myButton" *ngIf="event.facebookUrl">
+                    <a href="{{event.facebookUrl}}"
+                        *ngIf="language === 'ukr'" target="_blank">Більше...</a>
+                    <a href="{{event.facebookUrl}}"
+                        *ngIf="language === 'eng'" target="_blank">Read more...</a>
                 </div>
             </div>
             <div class="eventOneRight">

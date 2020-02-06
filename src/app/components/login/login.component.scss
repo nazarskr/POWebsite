@@ -1,0 +1,26 @@
+@import '../../../variables.scss';
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $my-mint;
+    width: 100vw;
+    padding: 100px 0;
+    h3 {
+        color: white;
+        padding: 25px 0;
+        font-size: 30px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        .full-width {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    } 
+} 

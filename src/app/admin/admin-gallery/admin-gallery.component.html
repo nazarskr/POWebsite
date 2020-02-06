@@ -9,7 +9,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of gallery; let i = index">
-                <td>{{i}}</td>
+                <td>{{i + 1}}</td>
                 <td>{{item.name}}</td>
                 <td>
                     <img src="{{item.url}}" alt="">
@@ -25,10 +25,11 @@
     </p>
     <br>
     <div id="uploadGallery">
-        <app-upload-image 
+        <app-upload-gallery 
             [fileAccept]="fileAccept" 
-            [filePath]="filePath" 
+            [filePath]="filePath"
+            [id] = "dropId" 
             (fileUrl)="getUrl($event)">
-        </app-upload-image>
+        </app-upload-gallery>
     </div>
 </div>

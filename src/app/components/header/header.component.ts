@@ -38,7 +38,6 @@ export class HeaderComponent implements OnInit {
   }
   changeLanguage() {
     this.languageService.changeLanguage();
-    console.log(this.language);
   }
   removeActive(): void {
     if (document.getElementsByClassName('navActive')[0]) {

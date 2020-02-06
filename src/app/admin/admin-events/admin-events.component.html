@@ -1,3 +1,133 @@
-<div id="adminEvents">
+<div id="adminEvents" class="adminSection">
     <h2 class="pageTitle">Події</h2>
+    <table class="myTable">
+      <thead>
+          <th>#</th>
+          <th>назва (укр)</th>
+          <th>назва (анг)</th>
+          <th>дата</th>
+          <th>час</th>
+          <th>опис (укр)</th>
+          <th>опис (анг)</th>
+          <th>зобр</th>
+          <th>ред</th>
+          <th>вид</th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of events; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{item.titleUkr}}</td>
+              <td>{{item.titleEng}}</td>
+              <td>{{item.date.toDate() | date: 'dd/MM/yyyy'}}</td>
+              <td>{{event.time}}</td>
+              <td>{{item.descriptionUkr}}</td>
+              <td>{{item.descriptionEng}}</td>
+              <td>
+                <img src="{{item.imageUrl}}" alt="pari art orchestra" srcset="">
+              </td>
+              <td>
+                <button class="myButton" (click)="editEvent(item)">ред</button>
+              </td>
+              <td>
+                  <button class="myButton" (click)="deleteEvent(item)">видал</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+    <button class="myButton" (click)="addEvent()">Додати подію</button>
+    <div class="adminForm" *ngIf="showForm">
+        <h3 *ngIf="!editMode">Додати подію</h3>
+        <h3 *ngIf="editMode">Редагувати подію</h3>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Назва укр:</mat-label>
+              <input matInput
+                    type="text" 
+                    required
+                    minlength="1" 
+                    [(ngModel)]="event.titleUkr"
+                    name="event.titleUkr">
+              <mat-error *ngIf="!event.titleUkr">Заповнити!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Назва анг:</mat-label>
+              <input matInput
+                    type="text" 
+                    required
+                    minlength="1" 
+                    [(ngModel)]="event.titleEng"
+                    name="event.titleEng">
+              <mat-error *ngIf="event.titleEng">Заповнити!</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input 
+                  matInput
+                  required
+                  [matDatepicker]="picker" 
+                  placeholder="Вибери дату"
+                  [(ngModel)]="event.date"
+                  name="event.date">
+                  <mat-error *ngIf="!event.date">Вибери дату!</mat-error>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Вибери час:</mat-label>
+              <input matInput
+                    type="time" 
+                    minlength="1" 
+                    [(ngModel)]="event.time"
+                    name="event.time">
+                    <mat-error *ngIf="event.time">Заповнити!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Опис укр:</mat-label>
+              <textarea matInput
+                        required 
+                        rows="6"
+                        minlength="1" 
+                        [(ngModel)]="event.descriptionUkr"
+                        name="event.descriptionUkr">
+              </textarea>
+              <mat-error *ngIf="!event.descriptionUkr">Заповнити!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Опис анг:</mat-label>
+              <textarea matInput
+                        required 
+                        rows="6"
+                        minlength="1" 
+                        [(ngModel)]="event.descriptionEng"
+                        name="event.descriptionEng">
+              </textarea>
+              <mat-error *ngIf="!event.descriptionEng">Заповнити!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Лінк на подію фб:</mat-label>
+              <input matInput
+                    type="text" 
+                    minlength="1" 
+                    [(ngModel)]="event.facebookUrl"
+                    name="event.facebookUrl">
+            </mat-form-field>
+            <div class="adminUploadImage">
+              <img src="{{event.imageUrl}}" alt="Не забудь про фото!" srcset="">
+              <p>Фото події сюди
+                  <a href="https://imagecompressor.com/ru/" target="_blank">(оптимізувати)</a>
+              </p>
+              <app-upload-image
+                  [fileAccept]="fileAccept" 
+                  [filePath]="filePath"
+                  [id] = "dropId" 
+                  (fileUrl)="getUrl($event)">
+              </app-upload-image>
+            </div>
+        </form>
+        <br>
+        <div>
+          <button class="myButton" *ngIf="!editMode" (click)="createEvent()">Додати</button>
+          <button class="myButton" *ngIf="editMode" (click)="updateEvent()">Оновити</button>
+          <button class="myButton" (click)="cancelAction()">Відмінити</button>
+        </div>
+    </div>
 </div>

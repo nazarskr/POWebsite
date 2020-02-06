@@ -8,6 +8,8 @@ import { EventsComponent } from './pages/events/events.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { VideoComponent } from './pages/video/video.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminGuard } from './components/login/login.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -17,12 +19,14 @@ const routes: Routes = [
   {path: 'video', component: VideoComponent},
   {path: 'events', component: EventsComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'admin', component: AdminComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
   {path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [AdminGuard],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

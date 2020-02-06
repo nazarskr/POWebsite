@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
+import { Video } from '../../shared/classes';
+import { VideoService } from '../../shared/services/video.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-video',
@@ -8,85 +11,40 @@ import { ScrollDispatcher } from '@angular/cdk/scrolling';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
-  @Output() sendReq = new EventEmitter();
+  @Output() sendReq: EventEmitter<boolean> = new EventEmitter();
   language: string;
   videoUrl: string;
   opened = false;
-  videos = [
-    {
-      title: 'Концерт в Оргзалі',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт в Філармонії',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт в Опері',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт на Вокзалі',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт в Дрогобичі',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт в Оргзалі',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт в Філармонії',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт в Опері',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт на Вокзалі',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-    {
-      title: 'Концерт в Дрогобичі',
-      date: new Date(),
-      imageUrl: '../../../assets/test/img6.JPG',
-      url: 'https://www.youtube.com/watch?v=ObaeucxuJ8U'
-    },
-  ];
+  videos: Video[] = [];
   blocks: HTMLCollection | NodeList;
   constructor(private languageService: LanguageService,
-              private scrollDispatcher: ScrollDispatcher) { 
+              private scrollDispatcher: ScrollDispatcher,
+              private videoService: VideoService) {
                 this.getLanguage();
               }
 
   ngOnInit() {
+    this.getVideos();
     this.appearElement();
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
     });
+  }
+  getVideos() {
+    this.videoService.getVideo()
+      .snapshotChanges()
+      .pipe(
+        map(changes =>
+          changes.map(c =>
+            ({ key: c.payload.doc.id, ...c.payload.doc.data()})
+          )
+        )
+      )
+      .subscribe(data => {
+        this.videos = data;
+      });
   }
   showVideo(video) {
     this.videoUrl = video.url;

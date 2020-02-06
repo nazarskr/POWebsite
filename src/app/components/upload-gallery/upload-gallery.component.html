@@ -1,7 +1,7 @@
 <ngx-dropzone
     id="{{id}}"
     accept="{{fileAccept}}"
-    multiple="false"
+    multiple="true"
     (change)="onSelect($event)">
     <ngx-dropzone-label>Кидай сюди або клікай і вибирай!</ngx-dropzone-label>
     <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">

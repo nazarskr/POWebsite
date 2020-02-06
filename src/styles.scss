@@ -5,9 +5,6 @@
     padding: 0;
     font-family: $main-font;
 }
-body {
-    position: relative;
-}
 li {
     list-style-type: none;
 }
@@ -52,6 +49,9 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     transition-duration: .5s;
     a {
+        display: block;
+        width: 100px;
+        line-height: 33px;
         font-family: $head-font;
         color: $my-mint;
     }
@@ -100,6 +100,32 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin-bottom: 25px;
 }
+.adminUploadImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    img {
+        width: 150px;
+        margin: 20px 0;
+    }
+    p {
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+.adminForm {
+    width: 500px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $my-grey;
+}
+
 @keyframes appear {
     from {
         opacity: 0;

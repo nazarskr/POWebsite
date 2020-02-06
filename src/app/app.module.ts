@@ -10,8 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmbedVideo } from 'ngx-embed-video';
 
 // material
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule,
+        MatIconModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule} from '@angular/material';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
@@ -38,6 +41,8 @@ import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.compo
 import { AdminContactComponent } from './admin/admin-contact/admin-contact.component';
 import { AdminVideoComponent } from './admin/admin-video/admin-video.component';
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { LoginComponent } from './components/login/login.component';
+import { UploadGalleryComponent } from './components/upload-gallery/upload-gallery.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +63,8 @@ import { UploadImageComponent } from './components/upload-image/upload-image.com
     AdminContactComponent,
     AdminVideoComponent,
     UploadImageComponent,
+    LoginComponent,
+    UploadGalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,12 +78,17 @@ import { UploadImageComponent } from './components/upload-image/upload-image.com
     EmbedVideo.forRoot(),
     MatInputModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
     NgxDropzoneModule
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} },
+              MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

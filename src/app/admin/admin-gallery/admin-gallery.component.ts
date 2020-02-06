@@ -13,6 +13,7 @@ export class AdminGalleryComponent implements OnInit {
   fileAccept = '.jpg, .JPEG, .JPG, .png, .tiff, .svg';
   filePath = 'galleryImages/';
   fileUrls: string[] = [];
+  dropId = 'galleryPhoto';
   submitted = true;
   update = false;
   gallery: Gallery[];

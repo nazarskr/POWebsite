@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
+import { AboutService } from '../../shared/services/about.service';
+import { About } from '../../shared/classes';
 
 @Component({
   selector: 'app-about',
@@ -10,16 +12,24 @@ import { ScrollDispatcher } from '@angular/cdk/scrolling';
 export class AboutComponent implements OnInit {
   language: string;
   blocks: HTMLCollection;
+  about: About = new About();
   constructor(private languageService: LanguageService,
-              private scrollDispatcher: ScrollDispatcher) {
+              private scrollDispatcher: ScrollDispatcher,
+              private aboutService: AboutService) {
     this.getLanguage();
   }
 
   ngOnInit() {
+    this.getAbout();
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {
       this.language = data;
+    });
+  }
+  getAbout() {
+    this.aboutService.getAbout().subscribe(data => {
+      this.about = data;
     });
   }
   scrollingEvents() {

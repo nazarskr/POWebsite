@@ -1,8 +1,11 @@
 export class Events {
     key: string;
-    title: string;
+    titleUkr: string;
+    titleEng: string;
     date: Date;
+    time: string;
     imageUrl: string;
-    description: string;
+    descriptionUkr: string;
+    descriptionEng: string;
     facebookUrl: string;
 }

@@ -2,9 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import {
   trigger,
   state,
-  style,
-  transition,
-  animate
+  style
 } from '@angular/animations';
 import { EmbedVideoService } from 'ngx-embed-video';
 
@@ -30,7 +28,7 @@ export class EmbedVideoComponent implements OnInit {
   @Input() videoUrl: string;
   @Output() send = new EventEmitter();
   showVideo: boolean;
-  container: HTMLElement;
+  container: HTMLElement = document.getElementById('embed-video');
   embedded: any;
   constructor(private embedService: EmbedVideoService) { }
 
@@ -38,7 +36,6 @@ export class EmbedVideoComponent implements OnInit {
   }
   embedVideo() {
     if (this.videoUrl) {
-      this.container = document.getElementById('embed-video');
       this.embedded = this.embedService.embed(this.videoUrl, {
         attr: { width: window.innerWidth * 0.8, height: window.innerWidth * 0.45}
       }).changingThisBreaksApplicationSecurity;

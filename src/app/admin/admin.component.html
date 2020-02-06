@@ -1,11 +1,20 @@
 <div id="admin" class="page">
-    <app-admin-contact></app-admin-contact>
+    <nav>
+        <ul id="adminNav">
+            <li (click)="onScrollElem('adC')">Відгуки</li>
+            <li (click)="onScrollElem('adA')">Про нас</li>
+            <li (click)="onScrollElem('adE')">Події</li>
+            <li (click)="onScrollElem('adG')">Галерея</li>
+            <li (click)="onScrollElem('adV')">Відео</li>
+        </ul>
+    </nav>
+    <app-admin-contact id="adC"></app-admin-contact>
     <hr>
-    <app-admin-about></app-admin-about>
+    <app-admin-about id="adA"></app-admin-about>
     <hr>
-    <app-admin-events></app-admin-events>
+    <app-admin-events id="adE"></app-admin-events>
     <hr>
-    <app-admin-gallery></app-admin-gallery>
+    <app-admin-gallery id="adG"></app-admin-gallery>
     <hr>
-    <app-admin-video></app-admin-video>
+    <app-admin-video id="adV"></app-admin-video>
 </div>

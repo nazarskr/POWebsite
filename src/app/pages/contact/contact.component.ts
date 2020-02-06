@@ -41,6 +41,6 @@ export class ContactComponent implements OnInit {
     this.contact = new Contact();
     form.resetForm();
     alert('Message sent!');
-    // this.router.navigate(['home']);
+    this.router.navigate(['home']);
   }
 }

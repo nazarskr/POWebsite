@@ -1,5 +1,7 @@
 <div id="home">
-    <div id="homeImage" (window:scroll)="scrollingEvents()" [ngStyle]="{'top': backgroundTop}">
+    <div id="homeImageContainer">
+        <div id="homeImage" (window:scroll)="scrollingEvents()" [ngStyle]="{'top': backgroundTop}">
+    </div>
     </div>
     <div id="homeLogo">
         <div id="logoAnimation">
@@ -11,18 +13,23 @@
         <h2 class="pageTitle" *ngIf="language === 'ukr'">Останні події</h2>
         <h2 class="pageTitle" *ngIf="language === 'eng'">Latest events</h2>
         <div id="homeLatestNewsInner">
-            <div class="latestNew" *ngFor="let event of events">
+            <div class="latestNew" *ngFor="let event of events | slice: 0:3">
                 <div class="latestNewDescription">
-                    <p>{{event.description}}</p>
+                    <p *ngIf="language === 'ukr'">{{event.descriptionUkr}}</p>
+                    <p *ngIf="language === 'eng'">{{event.descriptionEng}}</p>
                 </div>
                 <div class="latestNewImg">
                     <img src="{{event.imageUrl}}" alt="{{event.title}}" srcset="">
                 </div>
                 <div>
-                    <h3>{{event.title}}</h3>
+                    <h3 *ngIf="language === 'ukr'">{{event.titleUkr}}</h3>
+                    <h3 *ngIf="language === 'eng'">{{event.titleEng}}</h3>
                     <p class="latestNewDate">{{event.date | date: 'dd/MM/yyyy'}}</p>
-                    <div class="myButton" (click)="viewDetails(event)" *ngIf="event.facebookUrl">
-                        <a href="{{event.facebookUrl}}">Подія в Fb</a>
+                    <div class="myButton" *ngIf="event.facebookUrl">
+                        <a href="{{event.facebookUrl}}"
+                           *ngIf="language === 'ukr'" target="_blank">Більше...</a>
+                        <a href="{{event.facebookUrl}}"
+                           *ngIf="language === 'eng'" target="_blank">Read more...</a>
                     </div>
                 </div>
             </div>

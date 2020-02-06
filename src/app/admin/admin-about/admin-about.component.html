@@ -1,3 +1,72 @@
-<div id="adminAbout">
+<div id="adminAbout" class="adminSection">
     <h2 class="pageTitle">Про нас</h2>
+    <form>
+        <mat-form-field class="example-full-width">
+            <label for="about.orchUkr">Про оркестр (укр)</label>
+            <hr>
+            <textarea matInput
+                      rows="10" 
+                      [(ngModel)]="about.orchUkr"
+                      name="about.orchUkr">
+            </textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <label for="about.orchEng">Про оркестр (анг)</label>
+            <hr>
+            <textarea matInput
+                      rows="10" 
+                      [(ngModel)]="about.orchEng"
+                      name="about.orchEng">
+            </textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <label for="about.condUkr">Про дириґента (укр)</label>
+            <hr>
+            <textarea matInput
+                      rows="10" 
+                      [(ngModel)]="about.condUkr"
+                      name="about.condUkr">
+            </textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <label for="about.condEng">Про дириґента (анг)</label>
+            <hr>
+            <textarea matInput
+                      rows="10" 
+                      [(ngModel)]="about.condEng"
+                      name="about.condEng">
+            </textarea>
+        </mat-form-field>
+        <div id="uploadAboutPhotos">
+            <div class="adminUploadImage">
+                <img src="{{about.orchImageUrl}}" alt="PaRi Art Orchestra" srcset="">
+                <p>Фото оркестру сюди
+                    <a href="https://imagecompressor.com/ru/" target="_blank">(оптимізувати)</a>
+                </p>
+                <app-upload-image
+                    [fileAccept]="fileAccept" 
+                    [filePath]="filePath"
+                    [id] = "dropOrchId" 
+                    (fileUrl)="getOrchUrl($event)">
+                </app-upload-image>
+            </div>
+            <div class="adminUploadImage">
+                <img src="{{about.condImageUrl}}" alt="Roman Bagrii" srcset="">
+                <p>Фото диригента сюди
+                    <a href="https://imagecompressor.com/ru/" target="_blank">(оптимізувати)</a>
+                </p>
+                <app-upload-image
+                    [fileAccept]="fileAccept" 
+                    [filePath]="filePath"
+                    [id] = "dropCondId" 
+                    (fileUrl)="getCondUrl($event)">
+                </app-upload-image>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <button class="myButton" (click)="updateAbout()">Оновити</button>
+        <br>
+    </form>
 </div>
