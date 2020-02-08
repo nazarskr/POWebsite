@@ -4,6 +4,7 @@ import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { Video } from '../../shared/classes';
 import { VideoService } from '../../shared/services/video.service';
 import { map } from 'rxjs/operators';
+import { SendUrlService } from '../../shared/services/send.url.service';
 
 @Component({
   selector: 'app-video',
@@ -11,7 +12,6 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
-  @Output() sendReq: EventEmitter<boolean> = new EventEmitter();
   language: string;
   videoUrl: string;
   opened = false;
@@ -19,8 +19,10 @@ export class VideoComponent implements OnInit {
   blocks: HTMLCollection | NodeList;
   constructor(private languageService: LanguageService,
               private scrollDispatcher: ScrollDispatcher,
-              private videoService: VideoService) {
+              private videoService: VideoService,
+              private sendUrlService: SendUrlService) {
                 this.getLanguage();
+                this.getShowVideo();
               }
 
   ngOnInit() {
@@ -46,10 +48,16 @@ export class VideoComponent implements OnInit {
         this.videos = data;
       });
   }
+  getShowVideo() {
+    this.sendUrlService.openedVideo.subscribe(data => {
+      this.opened = data;
+    });
+  }
   showVideo(video) {
     this.videoUrl = video.url;
     this.opened = true;
-    this.sendReq.emit(true);
+    this.sendUrlService.sendVideoUrl(video.url);
+    this.sendUrlService.showVideo();
   }
   hideVideo(data) {
     this.opened = data;

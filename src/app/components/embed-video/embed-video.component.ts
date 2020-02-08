@@ -5,6 +5,7 @@ import {
   style
 } from '@angular/animations';
 import { EmbedVideoService } from 'ngx-embed-video';
+import { SendUrlService } from '../../shared/services/send.url.service';
 
 @Component({
   selector: 'app-embed-video',
@@ -24,29 +25,44 @@ import { EmbedVideoService } from 'ngx-embed-video';
   ],
 })
 export class EmbedVideoComponent implements OnInit {
-  @Input() opened: boolean;
-  @Input() videoUrl: string;
-  @Output() send = new EventEmitter();
+  videoUrl: string;
   showVideo: boolean;
-  container: HTMLElement = document.getElementById('embed-video');
   embedded: any;
-  constructor(private embedService: EmbedVideoService) { }
+  opened: boolean;
+  constructor(private embedService: EmbedVideoService,
+              private sendUrlService: SendUrlService) {
+                this.getUrl();
+                this.getShowVideo();
+              }
 
   ngOnInit() {
+  }
+  getUrl() {
+    this.sendUrlService.getVideoUrl()
+      .subscribe(data => {
+        this.videoUrl = data;
+        this.embedVideo();
+    });
+  }
+  getShowVideo() {
+    this.sendUrlService.openedVideo.subscribe(data => {
+      this.opened = data;
+    });
   }
   embedVideo() {
     if (this.videoUrl) {
       this.embedded = this.embedService.embed(this.videoUrl, {
         attr: { width: window.innerWidth * 0.8, height: window.innerWidth * 0.45}
       }).changingThisBreaksApplicationSecurity;
-      this.container.innerHTML += this.embedded;
+      const container = document.getElementById('embed');
+      container.innerHTML += this.embedded;
     }
   }
   closeVideo() {
+    const container = document.getElementById('embed');
+    this.sendUrlService.showVideo();
     if (this.embedded) {
-      this.container.removeChild(this.embedded);
+      container.innerHTML = '';
     }
-    this.opened = false;
-    this.send.emit(this.opened);
   }
 }
