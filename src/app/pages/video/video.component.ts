@@ -5,6 +5,7 @@ import { Video } from '../../shared/classes';
 import { VideoService } from '../../shared/services/video.service';
 import { map } from 'rxjs/operators';
 import { SendUrlService } from '../../shared/services/send.url.service';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-video',
@@ -48,6 +49,9 @@ export class VideoComponent implements OnInit {
         this.videos = data;
       });
   }
+  // onMouseMove() {
+  //   const stream$ = fromEvent(document.getElementById('light'), )
+  // }
   getShowVideo() {
     this.sendUrlService.openedVideo.subscribe(data => {
       this.opened = data;
@@ -72,7 +76,7 @@ export class VideoComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.blocks.length; i++) {
       const pos = this.blocks[i].getBoundingClientRect();
-      if (pos.top < window.innerHeight + 100 && pos.top > window.innerHeight / 1.2) {
+      if (pos.top < window.innerHeight + 100 && pos.top > window.innerHeight) {
         this.blocks[i].classList.add('appear');
       }
     }

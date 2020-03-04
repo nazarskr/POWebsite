@@ -5,6 +5,9 @@
     <div id="eventsInner">
         <div class="eventOne" *ngFor="let event of events">
             <div class="eventOneLeft">
+                <img src="{{event.imageUrl}}" alt="" srcset="">
+            </div>
+            <div class="eventOneRight">
                 <p class="eventOneDate">{{event.date.toDate() | date: 'dd.MM.yyyy'}}, {{event.time}}</p>
                 <h3 *ngIf="language === 'ukr'">{{event.titleUkr}}</h3>
                 <h3 *ngIf="language === 'eng'">{{event.titleEng}}</h3>
@@ -19,9 +22,6 @@
                     <a href="{{event.facebookUrl}}"
                         *ngIf="language === 'eng'" target="_blank">Read more...</a>
                 </div>
-            </div>
-            <div class="eventOneRight">
-                <img src="{{event.imageUrl}}" alt="" srcset="">
             </div>
         </div>
     </div>

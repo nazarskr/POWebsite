@@ -3,8 +3,11 @@ header {
     font-family: $head-font;
     position: relative;
     .changeLanguage {
+        width: 26px;
+        height: 26px;
         font-family: $head-font;
         font-size: 16px;
+        text-align: center;
         padding: 2px;
         background-color: white;
         border: 1px solid black;
@@ -141,33 +144,11 @@ header {
 }
 @media (max-width: 600px) {
     header {
-        .changeLanguage {
-            font-size: 12px;
-            padding: 2px;
-            top: 45px;
-        }
         h1 {
             font-size: 25px;
         }
         hr {
             top: 60px;
-        }
-        #navigation {
-            .menuBtn {
-                width: 21px;
-                height: 21px;
-                span,
-                span::before,
-                span::after {
-                    width: 15px;
-                }
-                span::before {
-                    top: -5px;
-                }
-                span::after {
-                    top: 5px;
-                }
-            }
         }
     }
 }
@@ -175,6 +156,37 @@ header {
     header {
         h1 {
             font-size: 20px;
+        }
+    }
+}
+@media(max-width: 350px) {
+    header {
+        h1 {
+            font-size: 18px;
+        }
+        .changeLanguage {
+            width: 22px;
+            height: 22px;
+            font-size: 14px;
+            padding: 1px;
+            top: 50px;
+        }
+        #navigation {
+            .menuBtn {
+                width: 22px;
+                height: 22px;
+                span,
+                span::before,
+                span::after {
+                    width: 16px;
+                }
+                span::before {
+                    top: -6px;
+                }
+                span::after {
+                    top: 6px;
+                }
+            }
         }
     }
 }

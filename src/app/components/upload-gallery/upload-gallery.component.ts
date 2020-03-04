@@ -15,9 +15,7 @@ export class UploadGalleryComponent implements OnInit {
   @Input() id: string;
   @Output() fileUrl: EventEmitter<Gallery> = new EventEmitter();
   files: File[] = [];
-  uploadFile: any;
   uploadFiles: any[] = [];
-  fileName: string;
   ref: any;
   newFileUrl: any;
   uploadProgress$: Observable<number>;
@@ -27,22 +25,23 @@ export class UploadGalleryComponent implements OnInit {
   }
   onSelect(event) {
     this.files.push(...event.addedFiles);
+  }
+  onRemove(event) {
+    this.uploadFiles.splice(this.uploadFiles.indexOf(event), 1);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+  onReset() {
+    this.uploadFiles.splice(0, this.uploadFiles.length);
+    this.files.splice(0, this.files.length);
+  }
+  upload() {
     this.files.forEach(file => {
-      this.fileName = file.name;
-      this.uploadFile = file;
       this.uploadFiles.push({
         name: file.name,
         item: file
       });
     });
-  }
-  onRemove(event) {
-    this.files.splice(this.files.indexOf(event), 1);
-  }
-  onReset() {
-    this.files.splice(0, this.files.length);
-  }
-  upload() {
+    console.log(this.uploadFiles);
     if (this.uploadFiles.length > 0) {
       this.uploadFiles.forEach(file => {
         const task = this.afStorage.upload(`${this.filePath}${file.name}`, file.item);
@@ -55,7 +54,6 @@ export class UploadGalleryComponent implements OnInit {
               url,
               key: '',
               name: file.name});
-            document.getElementById('progressBar').style.display = 'none';
           }).catch((error) => {
             console.log(error);
           });

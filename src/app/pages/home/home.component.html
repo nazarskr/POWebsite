@@ -21,10 +21,10 @@
                 <div class="latestNewImg">
                     <img src="{{event.imageUrl}}" alt="{{event.title}}" srcset="">
                 </div>
-                <div>
+                <div class="latestNewInfo">
                     <h3 *ngIf="language === 'ukr'">{{event.titleUkr}}</h3>
                     <h3 *ngIf="language === 'eng'">{{event.titleEng}}</h3>
-                    <p class="latestNewDate">{{event.date | date: 'dd/MM/yyyy'}}</p>
+                    <p class="latestNewDate">{{event.date.toDate() | date: 'dd/MM/yyyy'}}</p>
                     <div class="myButton" *ngIf="event.facebookUrl">
                         <a href="{{event.facebookUrl}}"
                            *ngIf="language === 'ukr'" target="_blank">Більше...</a>

@@ -4,24 +4,24 @@
     </div>
     <h2 (click)="goHome()">PaRi Art Music Orchestra</h2>
     <div id="social">
-        <a href="" target="_blank">
+        <a href="https://www.facebook.com/PaRiArtMusic/" target="_blank">
             <img src="../../../assets/images/facebook.png" alt="facebook" srcset=""> 
         </a>
-        <a href="" target="_blank">
+        <a href="https://www.instagram.com/pariartmusic/?hl=uk" target="_blank">
             <img src="../../../assets/images/instagram.png" alt="instagram" srcset="">
         </a>
-        <a href="" target="_blank">
+        <a href="https://www.youtube.com/" target="_blank">
             <img src="../../../assets/images/youtube.png" alt="youtube" srcset="">
         </a>
     </div>
     <div class="copyright" *ngIf="language === 'ukr'">
         <p>@<span>{{date | date: 'y'}}</span> Всі права збережені</p>
-        <p class="developerInfo">Розробник: <a href="https://nskrprogrammer.firebaseapp.com" target="_blank">Назар Скрипник</a>
+        <p class="developerInfo">Розробник: <a href="https://nazarskrypnyk.com" target="_blank">Назар Скрипник</a>
         </p>
     </div>
     <div class="copyright" *ngIf="language === 'eng'">
         <p>@<span>{{date | date: 'y'}}</span> All rights reserved</p>
-        <p class="developerInfo">Developer: <a href="https://nskrprogrammer.firebaseapp.com" target="_blank">Nazar Skrypnyk</a>
+        <p class="developerInfo">Developer: <a href="https://nazarskrypnyk.com" target="_blank">Nazar Skrypnyk</a>
         </p>
     </div>
 </footer>

@@ -20,3 +20,8 @@
         border: 1px solid $my-mint;
     }
 }
+@media(max-height: 500px) {
+    #about {
+        padding: 0 30vh;
+    }
+}

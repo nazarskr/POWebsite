@@ -17,10 +17,10 @@ export class AboutComponent implements OnInit {
               private scrollDispatcher: ScrollDispatcher,
               private aboutService: AboutService) {
     this.getLanguage();
+    this.getAbout();
   }
 
   ngOnInit() {
-    this.getAbout();
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {

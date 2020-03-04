@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
 import { Contact } from 'src/app/shared/classes';
 import { Router } from '@angular/router';
-// import { NgForm } from '@angular/forms';
 import { ContactService } from 'src/app/shared/services/contact.service';
 
 @Component({

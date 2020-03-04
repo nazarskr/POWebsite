@@ -19,11 +19,7 @@ export class SendUrlService {
     return this.embedVideo;
   }
   showVideo() {
-    if (this.opened) {
-      this.opened = false;
-    } else {
-      this.opened = true;
-    }
+    this.opened = !this.opened;
     this.openedVideo.next(this.opened);
   }
 }

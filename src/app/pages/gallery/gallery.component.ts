@@ -72,7 +72,7 @@ export class GalleryComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.galleryImages.length; i++) {
       const pos = this.galleryImages[i].getBoundingClientRect();
-      if (pos.top < window.innerHeight + 100 && pos.top > window.innerHeight / 1.2) {
+      if (pos.top < window.innerHeight + 100 && pos.top > window.innerHeight) {
         this.galleryImages[i].classList.add('appear');
       }
     }

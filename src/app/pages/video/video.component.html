@@ -1,12 +1,16 @@
-<div id="video" class="page" (window:scroll)="scrollingEvents()">
+<div id="video" (window:scroll)="scrollingEvents()">
+    <div id="videoBackground">
+        <img src="../../../assets/images/orgHall.JPG" alt="" srcset="">
+    </div>
+    <!-- <div id="light"></div> -->
     <h2 class="pageTitle" *ngIf="language === 'ukr'">Відео</h2>
     <h2 class="pageTitle" *ngIf="language === 'eng'">Video</h2>
     <div id="videoInner">
         <div class="videoOne" *ngFor="let video of videos; let i = index" (click)="showVideo(video)">
             <img src="{{video.imageUrl}}" alt="концерт" srcset="">
+            <p>{{video.date.toDate() | date: 'dd/MM/yyyy'}}</p>
             <h3 *ngIf="language === 'ukr'">{{video.titleUkr}}</h3>
             <h3 *ngIf="language === 'eng'">{{video.titleEng}}</h3>
-            <p>{{video.date.toDate() | date: 'dd/MM/yyyy'}}</p>
         </div>
     </div>
 </div>

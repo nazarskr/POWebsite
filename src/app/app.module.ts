@@ -14,7 +14,8 @@ import {MatInputModule,
         MatIconModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatSelectModule} from '@angular/material';
+        MatSelectModule,
+        MatCardModule} from '@angular/material';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
@@ -81,6 +82,7 @@ import { UploadGalleryComponent } from './components/upload-gallery/upload-galle
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatCardModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
