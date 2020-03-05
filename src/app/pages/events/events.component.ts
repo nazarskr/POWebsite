@@ -22,7 +22,6 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
-    console.log(window.innerWidth);
   }
   getLanguage() {
     this.languageService.getLanguage().subscribe(data => {

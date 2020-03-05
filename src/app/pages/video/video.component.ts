@@ -49,9 +49,6 @@ export class VideoComponent implements OnInit {
         this.videos = data;
       });
   }
-  // onMouseMove() {
-  //   const stream$ = fromEvent(document.getElementById('light'), )
-  // }
   getShowVideo() {
     this.sendUrlService.openedVideo.subscribe(data => {
       this.opened = data;

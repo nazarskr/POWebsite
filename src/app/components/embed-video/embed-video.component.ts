@@ -55,7 +55,7 @@ export class EmbedVideoComponent implements OnInit {
         attr: { width: window.innerWidth * 0.8, height: window.innerWidth * 0.45}
       }).changingThisBreaksApplicationSecurity;
       const container = document.getElementById('embed');
-      container.innerHTML += this.embedded;
+      container.innerHTML = this.embedded;
     }
   }
   closeVideo() {

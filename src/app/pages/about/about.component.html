@@ -6,11 +6,10 @@
             <img src="{{about.orchImageUrl}}" alt="PaRi Art Orchestra" srcset="">
         </div>
         <div id="aboutOrchestraText" class="aboutSectionText">
-            <p *ngIf="language === 'ukr'">{{about.orchUkr}}</p>
-            <p *ngIf="language === 'eng'">{{about.orchEng}}</p>
+            <p *ngIf="language === 'ukr'" [innerHTML]="about.orchUkr"></p>
+            <p *ngIf="language === 'eng'"[innerHTML]="about.orchEng"></p>
         </div>
     </div>
-    <hr>
     <div id="aboutConductor" class="aboutSection">
         <h2 class="pageTitle" *ngIf="language === 'ukr'">Роман Багрій</h2>
         <h2 class="pageTitle" *ngIf="language === 'eng'">Roman Bagrii</h2>
@@ -18,8 +17,8 @@
             <img src="{{about.condImageUrl}}" alt="" srcset="">
         </div>
         <div id="aboutConductorText" class="aboutSectionText">
-            <p *ngIf="language === 'ukr'">{{about.condUkr}}</p>
-            <p *ngIf="language === 'eng'">{{about.condEng}}</p>
+            <p *ngIf="language === 'ukr'" [innerHTML]="about.condUkr"></p>
+            <p *ngIf="language === 'eng'" [innerHTML]="about.condEng"></p>
         </div>
     </div>
 </div>

@@ -1,8 +1,13 @@
 @import '../../../variables.scss';
 #about {
-    padding: 0 8%;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     .aboutSection {
-        margin: 50px 0;
+        margin: 25px;
+        padding: 25px;
+        box-shadow: 0 0 5px $my-grey;
+        border-radius: 10px;
         .aboutSectionImg {
             margin-bottom: 25px;
             img {
@@ -16,8 +21,19 @@
             }
         }
     }
-    hr {
-        border: 1px solid $my-mint;
+}
+@media(max-width: 1024px) {
+    #about {
+        grid-template-columns: 1fr;
+        .aboutSection {
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+        }
+        #aboutConductor {
+            border-top: 1px solid $my-mint;
+            padding-top: 25px;
+        }
     }
 }
 @media(max-height: 500px) {
