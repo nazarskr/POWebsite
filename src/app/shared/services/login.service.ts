@@ -15,4 +15,7 @@ export class LoginService {
   getLogin(): Observable<Login> {
     return this.loginDoc.valueChanges();
   }
+  updateLogin(val: any): Promise<void> {
+    return this.loginDoc.update(val);
+  }
 }

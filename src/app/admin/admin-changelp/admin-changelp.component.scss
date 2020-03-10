@@ -1,0 +1,22 @@
+@import '../../../variables.scss';
+#adminChangeLp {
+    hr {
+        width: 100%;
+    }
+    .passForm{
+        ::ng-deep.mat-focused .mat-form-field-label {
+            color: $my-mint !important;
+        }
+        ::ng-deep .mat-form-field-label {
+            color: $my-mint !important;
+            font-size: 13px;
+            font-family: $head-font;
+        }
+        ::ng-deep.mat-form-field-underline {
+            background-color: $my-mint !important;
+        } 
+        ::ng-deep.mat-form-field-ripple {
+            background-color: $my-mint !important;
+        }
+    }
+}

@@ -5,9 +5,9 @@
     <div id="videoInner">
         <div class="videoOne" *ngFor="let video of videos; let i = index" (click)="showVideo(video)">
             <img src="{{video.imageUrl}}" alt="концерт" srcset="">
-            <p>{{video.date.toDate() | date: 'dd/MM/yyyy'}}</p>
             <h3 *ngIf="language === 'ukr'">{{video.titleUkr}}</h3>
             <h3 *ngIf="language === 'eng'">{{video.titleEng}}</h3>
+            <p>{{video.date.toDate() | date: 'yyyy'}}</p>
         </div>
     </div>
 </div>

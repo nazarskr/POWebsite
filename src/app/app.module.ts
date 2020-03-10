@@ -44,6 +44,7 @@ import { AdminVideoComponent } from './admin/admin-video/admin-video.component';
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
 import { LoginComponent } from './components/login/login.component';
 import { UploadGalleryComponent } from './components/upload-gallery/upload-gallery.component';
+import { AdminChangelpComponent } from './admin/admin-changelp/admin-changelp.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { UploadGalleryComponent } from './components/upload-gallery/upload-galle
     UploadImageComponent,
     LoginComponent,
     UploadGalleryComponent,
+    AdminChangelpComponent,
   ],
   imports: [
     BrowserModule,

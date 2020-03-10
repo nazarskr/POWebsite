@@ -13,9 +13,9 @@
                 <h3 *ngIf="language === 'eng'">{{event.titleEng}}</h3>
                 <hr>
                 <p class="eventOneDescription" 
-                    *ngIf="language === 'ukr'">{{event.descriptionUkr}}</p>
+                    *ngIf="language === 'ukr'" [innerHTML]="event.descriptionUkr"></p>
                 <p class="eventOneDescription" 
-                    *ngIf="language === 'eng'">{{event.descriptionEng}}</p>
+                    *ngIf="language === 'eng'" [innerHTML]="event.descriptionEng"></p>
                 <div class="myButton" *ngIf="event.facebookUrl">
                     <a href="{{event.facebookUrl}}"
                         *ngIf="language === 'ukr'" target="_blank">Більше...</a>

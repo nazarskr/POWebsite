@@ -11,8 +11,14 @@
             height: 110vh;
             position: absolute;
             top: 0;
+            left: 0;
             background-image: url('../../../assets/images/homeImage.JPG');
             background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            min-width: 100%;
+            min-height: 100%;
             background-position: 40% 0%;
             z-index: -1;
         }
@@ -120,12 +126,19 @@
                 }
                 .latestNewInfo {
                     h3 {
-                        padding: 10px 0;
+                        padding: 10px 0 15px;
                         color: $my-mint;
                         text-transform: uppercase;
+                        font-size: 20px;
                     }
                     .latestNewDate {
-                        color: $my-grey;
+                        display: inline-block;
+                        padding: 2px 5px;
+                        letter-spacing: 1px;
+                        color: white;
+                        font-weight: 300;
+                        background-color: $my-grey;
+                        font-size: 14px;
                     }
                     .myButton {
                         margin: 15px auto 0;
@@ -137,6 +150,12 @@
 }
 @media(max-width: 900px) {
     #home {
+        #homeImageContainer {
+            #homeImage {
+                min-width: 100%;
+                min-height: 100%;
+            }
+        }
         #homeLatestNews {
             #homeLatestNewsInner {
                 .latestNew {
@@ -150,7 +169,7 @@
         }
     }
 }
-@media(max-width: 700px) {
+@media(max-width: 800px) {
     #home {
         #homeLatestNews {
             #homeLatestNewsInner {
@@ -166,7 +185,7 @@
                     }
                     div {
                         h3 {
-                            font-size: 25px
+                            font-size: 35px
                         }
                         .latestNewDate {
                             font-size: 20px;
@@ -184,7 +203,7 @@
                 .latestNew {
                     div {
                         h3 {
-                            font-size: 20px
+                            font-size: 30px
                         }
                         .latestNewDate {
                             font-size: 14px;

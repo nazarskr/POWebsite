@@ -5,3 +5,4 @@ export * from './video.class';
 export * from './login.class';
 export * from './about.class';
 export * from './admin.image.class';
+export * from './change.class';

@@ -89,4 +89,8 @@
             </form>
         </div>
     </div>
+    <div id="contactThanks" (click)="hideThanks()" [@showThanks]="sent ? 'show' : 'hide'">
+      <p class="thanks" *ngIf="language === 'ukr'">Дякуємо за Ваш відгук!</p>
+      <p class="thanks" *ngIf="language === 'eng'">Thank you for a comment!</p>
+    </div>
 </div>

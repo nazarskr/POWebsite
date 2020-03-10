@@ -1,0 +1,38 @@
+<div id="adminChangeLp" class="adminSection">
+    <hr>
+    <br>
+    <p>Змінити логін/пароль</p>
+    <div>
+        <form class="example-form passForm">
+            <mat-form-field class="example-full-width">
+              <mat-label>Старий пароль:</mat-label>
+              <input matInput
+                    type="password" 
+                    required
+                    minlength="1" 
+                    [(ngModel)]="passChange.oldPass"
+                    name="passChange.oldPass">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Новий пароль:</mat-label>
+                <input matInput
+                      type="password" 
+                      required
+                      minlength="1" 
+                      [(ngModel)]="passChange.newPass"
+                      name="passChange.newPass">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Підтвердити пароль:</mat-label>
+                <input matInput
+                      type="password" 
+                      required
+                      minlength="1" 
+                      [(ngModel)]="passChange.confirmPass"
+                      name="passChange.confirmPass">
+            </mat-form-field>
+            <button class="myButton" (click)="changePass()">Змінити</button>
+        </form>
+    </div>
+    <hr>
+</div>

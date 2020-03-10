@@ -4,6 +4,7 @@
     height: 100vh;
     position: fixed;
     top: 0;
+    left: 0;
     background-image: url('../../../assets/images/contactImage3.JPG');
     background-size: cover;
     background-position: center;
@@ -34,7 +35,7 @@
             h3 {
                 color: $my-mint;
                 font-size: 30px;
-                margin-bottom: 15px;
+                margin-bottom: 5px;
             }
             .contactName {
                 font-weight: bold;
@@ -92,8 +93,31 @@
             }
         } 
     }
+    #contactThanks {
+        width: 100vw;
+        height: 100vh;
+        background-color: $my-translucent;
+        z-index: 104;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(0, -100vh);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .thanks {
+            font-family: $head-font;
+            color: white;
+            font-size: 10vmin;
+        }
+    }
 }
 @media(max-width: 750px) {
+    #contactImage {
+        min-width: 100%;
+        min-height: 100%;
+    }
     #contact {
         padding-top:85px;
     }

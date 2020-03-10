@@ -1,6 +1,6 @@
 @import '../../../variables.scss';
 #about {
-    padding: 0 5%;
+    padding: 0 2%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     .aboutSection {
@@ -24,6 +24,7 @@
 }
 @media(max-width: 1024px) {
     #about {
+        padding: 0 5%;
         grid-template-columns: 1fr;
         .aboutSection {
             border-radius: 0;

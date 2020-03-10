@@ -1,11 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { Video } from '../../shared/classes';
 import { VideoService } from '../../shared/services/video.service';
 import { map } from 'rxjs/operators';
 import { SendUrlService } from '../../shared/services/send.url.service';
-import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-video',
